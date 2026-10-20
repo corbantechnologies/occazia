@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  /* Lake Victoria blues */
+  --color-lake-50: #eef6f8;
+  --color-lake-100: #d5e8ee;
+  --color-lake-600: #1f6f86;
+  --color-lake-700: #175a6e;
+  --color-lake-800: #114556;
+  --color-lake-900: #0b2f3b;
+
+  /* Warm sand and sunset gold */
+  --color-sand-50: #fbf8f2;
+  --color-sand-100: #f4ecdd;
+  --color-sand-200: #e8d9bc;
+  --color-gold-500: #c8952f;
+  --color-gold-600: #a97a1f;
+
+  --color-ink: #1c2529;
+  --color-whatsapp: #1fa855;
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-sand-50);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold-500);
+  outline-offset: 2px;
+}
