@@ -93,6 +93,29 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto grid max-w-6xl gap-8 px-4 py-16 md:grid-cols-2 md:items-center" aria-labelledby="dining-heading">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl md:order-2">
+          <Photo photo={photoSlots.dining} label="Restaurant" sizes="(min-width: 768px) 50vw, 100vw" />
+        </div>
+        <div>
+          <h2 id="dining-heading" className="font-display text-3xl font-semibold text-lake-900">
+            Eat, drink and unwind
+          </h2>
+          <p className="mt-3 text-ink/80">
+            Our restaurant serves local and international dishes, including fresh Lake Victoria tilapia, from 6:00 AM to
+            11:00 PM. Finish the day at the bar and lounge.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/dining" className="rounded-full bg-lake-700 px-6 py-3 font-semibold text-white hover:bg-lake-800">
+              Dining
+            </Link>
+            <Link href="/gallery" className="rounded-full border border-lake-700 px-6 py-3 font-semibold text-lake-700 hover:bg-lake-50">
+              Photo gallery
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 py-16 text-center" aria-labelledby="contact-heading">
         <h2 id="contact-heading" className="font-display text-3xl font-semibold text-lake-900">
           Talk to us

@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/conferences", destination: "/events", permanent: true },
+      { source: "/contact", destination: "/booking", permanent: false },
       // Leftover theme demo pages from the old site that Google indexed.
       { source: "/places/:path*", destination: "/", permanent: true },
     ];
