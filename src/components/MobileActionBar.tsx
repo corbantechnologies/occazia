@@ -9,9 +9,9 @@ export function MobileActionBar() {
   const pathname = usePathname();
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-lake-900/10 bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_16px_rgba(0,0,0,0.08)] md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-wine-900/10 bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_16px_rgba(0,0,0,0.08)] md:hidden">
       <div className="grid grid-cols-3">
-        <a href={telHref} data-track="call" className="flex min-h-14 flex-col items-center justify-center gap-0.5 text-lake-800">
+        <a href={telHref} data-track="call" className="flex min-h-14 flex-col items-center justify-center gap-0.5 text-wine-800">
           <PhoneIcon />
           <span className="text-xs font-semibold">Call</span>
         </a>
@@ -28,7 +28,7 @@ export function MobileActionBar() {
         <Link
           href="/booking"
           data-track="book"
-          className="flex min-h-14 flex-col items-center justify-center gap-0.5 bg-gold-500 text-lake-900"
+          className="flex min-h-14 flex-col items-center justify-center gap-0.5 bg-gold-500 text-wine-900"
         >
           <CalendarIcon />
           <span className="text-xs font-semibold">Book</span>

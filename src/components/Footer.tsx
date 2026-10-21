@@ -8,7 +8,7 @@ export function Footer() {
   const { address, contact } = hotel;
 
   return (
-    <footer className="bg-lake-900 pb-24 text-sand-100 md:pb-0">
+    <footer className="bg-wine-900 pb-24 text-sand-100 md:pb-0">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
         <div>
           <Image src={logoWhite} alt={hotel.name} className="h-24 w-auto" />

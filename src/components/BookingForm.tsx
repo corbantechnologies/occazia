@@ -6,8 +6,8 @@ import { hotel } from "@/data/hotel";
 import { mealPlans, rooms, type MealPlan } from "@/data/rooms";
 import { whatsappHref } from "@/lib/contact";
 
-const field = "mt-1 block min-h-11 w-full rounded-lg border border-lake-900/20 bg-white px-3 text-base text-ink";
-const label = "block text-sm font-semibold text-lake-900";
+const field = "mt-1 block min-h-11 w-full rounded-lg border border-wine-900/20 bg-white px-3 text-base text-ink";
+const label = "block text-sm font-semibold text-wine-900";
 
 // The enquiry goes out as a prefilled WhatsApp message (or email), so no
 // server or API key is needed. A server-side email handler can replace this later.
@@ -114,7 +114,7 @@ export function BookingForm() {
         <button
           type="button"
           onClick={(e) => sendEmail(e.currentTarget.form)}
-          className="min-h-12 rounded-full border border-lake-700 px-6 font-semibold text-lake-700 hover:bg-lake-50"
+          className="min-h-12 rounded-full border border-wine-700 px-6 font-semibold text-wine-700 hover:bg-wine-50"
         >
           Send by email instead
         </button>

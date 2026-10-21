@@ -129,6 +129,14 @@ export const photoSlots: Record<string, Photo | undefined> = {
   booking: photos.frontDesk,
 };
 
+// Slides in the home page hero carousel, first slide first.
+export const heroPhotos = {
+  hotel: photos.hotelFront,
+  room: photos.executiveRoom,
+  conference: photos.conferenceHallClassroom,
+  dining: photos.restaurantDiningRoom,
+};
+
 // Photo carousels on each room page, first photo first.
 // TODO: confirm with the hotel which room type each photo shows. The
 // photographer's files are not labelled; the room with the lounge chairs is

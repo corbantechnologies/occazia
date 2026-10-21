@@ -33,13 +33,13 @@ export default function LocationPage() {
             target="_blank"
             rel="noopener"
             data-track="directions"
-            className="mt-4 inline-block rounded-full bg-lake-700 px-6 py-3 font-semibold text-white hover:bg-lake-800"
+            className="mt-4 inline-block rounded-full bg-wine-700 px-6 py-3 font-semibold text-white hover:bg-wine-800"
           >
             Get directions in Google Maps
           </a>
         </div>
         <div>
-          <h2 className="font-display text-2xl font-semibold text-lake-900">Address</h2>
+          <h2 className="font-display text-2xl font-semibold text-wine-900">Address</h2>
           <address className="mt-3 not-italic leading-relaxed">
             {hotel.name}
             <br />
@@ -55,28 +55,28 @@ export default function LocationPage() {
 
       <section className="bg-white" aria-labelledby="directions-heading">
         <div className="mx-auto max-w-6xl px-4 py-14">
-          <h2 id="directions-heading" className="font-display text-3xl font-semibold text-lake-900">How far is it?</h2>
+          <h2 id="directions-heading" className="font-display text-3xl font-semibold text-wine-900">How far is it?</h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-3">
             {hotel.directions.map((d) => (
-              <li key={d.from} className="rounded-2xl bg-sand-50 p-5 ring-1 ring-lake-900/5">
-                <p className="font-semibold text-lake-800">From {d.from}</p>
+              <li key={d.from} className="rounded-2xl bg-sand-50 p-5 ring-1 ring-wine-900/5">
+                <p className="font-semibold text-wine-800">From {d.from}</p>
                 <p className="mt-1 text-ink/80">{d.detail}</p>
               </li>
             ))}
           </ul>
 
-          <h2 className="mt-14 font-display text-3xl font-semibold text-lake-900">Nearby</h2>
+          <h2 className="mt-14 font-display text-3xl font-semibold text-wine-900">Nearby</h2>
           <p className="mt-2 text-ink/80">Places to visit during your stay. The front desk is happy to help you plan trips.</p>
           <ul className="mt-6 flex flex-wrap gap-3">
             {hotel.nearby.map((place) => (
-              <li key={place} className="rounded-full bg-lake-50 px-4 py-2 text-lake-800">{place}</li>
+              <li key={place} className="rounded-full bg-wine-50 px-4 py-2 text-wine-800">{place}</li>
             ))}
           </ul>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14 text-center">
-        <h2 className="font-display text-3xl font-semibold text-lake-900">Need help finding us?</h2>
+        <h2 className="font-display text-3xl font-semibold text-wine-900">Need help finding us?</h2>
         <p className="mt-2 text-ink/80">Call or WhatsApp the front desk, open 24 hours.</p>
         <div className="mt-6 flex justify-center">
           <ContactButtons whatsappMessage={`Hi ${hotel.shortName}, could you send me directions to the hotel?`} />

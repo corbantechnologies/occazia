@@ -40,12 +40,12 @@ export default function EventsPage() {
       </PageHero>
 
       <section className="mx-auto max-w-6xl px-4 py-14" aria-labelledby="halls-heading">
-        <h2 id="halls-heading" className="font-display text-3xl font-semibold text-lake-900">Our halls</h2>
+        <h2 id="halls-heading" className="font-display text-3xl font-semibold text-wine-900">Our halls</h2>
         <ul className="mt-6 grid gap-4 sm:grid-cols-3">
           {halls.map((hall) => (
-            <li key={hall.id} className="rounded-2xl bg-white p-6 ring-1 ring-lake-900/5">
+            <li key={hall.id} className="rounded-2xl bg-white p-6 ring-1 ring-wine-900/5">
               <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">{hall.name}</p>
-              <p className="mt-2 font-display text-4xl font-semibold text-lake-900">{hall.capacity}</p>
+              <p className="mt-2 font-display text-4xl font-semibold text-wine-900">{hall.capacity}</p>
               <p className="text-sm text-ink/70">guests</p>
             </li>
           ))}
@@ -58,7 +58,7 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="bg-lake-800 text-white" aria-labelledby="packages-heading">
+      <section className="bg-wine-800 text-white" aria-labelledby="packages-heading">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <h2 id="packages-heading" className="font-display text-3xl font-semibold">Packages and prices</h2>
           <p className="mt-2 text-sand-100">Prices in Kenya shillings. Ask us what each package includes.</p>
@@ -85,7 +85,7 @@ export default function EventsPage() {
 
       <section className="mx-auto grid max-w-6xl gap-12 px-4 py-14 md:grid-cols-2" aria-label="Facilities and who we host">
         <div>
-          <h2 className="font-display text-3xl font-semibold text-lake-900">Included facilities</h2>
+          <h2 className="font-display text-3xl font-semibold text-wine-900">Included facilities</h2>
           <ul className="mt-6 space-y-3">
             {eventFacilities.map((facility) => (
               <li key={facility} className="flex items-start gap-2">
@@ -96,11 +96,11 @@ export default function EventsPage() {
           </ul>
         </div>
         <div>
-          <h2 className="font-display text-3xl font-semibold text-lake-900">Who we host</h2>
+          <h2 className="font-display text-3xl font-semibold text-wine-900">Who we host</h2>
           <ul className="mt-6 space-y-5">
             {audiences.map((a) => (
               <li key={a.title}>
-                <p className="font-semibold text-lake-800">{a.title}</p>
+                <p className="font-semibold text-wine-800">{a.title}</p>
                 <p className="text-ink/80">{a.detail}</p>
               </li>
             ))}
@@ -110,7 +110,7 @@ export default function EventsPage() {
 
       <section className="bg-white" aria-labelledby="quote-heading">
         <div className="mx-auto max-w-6xl px-4 py-14 text-center">
-          <h2 id="quote-heading" className="font-display text-3xl font-semibold text-lake-900">Planning an event?</h2>
+          <h2 id="quote-heading" className="font-display text-3xl font-semibold text-wine-900">Planning an event?</h2>
           <p className="mx-auto mt-2 max-w-xl text-ink/80">
             Send us the date, number of guests and what you need, and we&apos;ll come back with a quote.
           </p>

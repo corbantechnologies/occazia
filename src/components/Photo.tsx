@@ -18,7 +18,7 @@ export function Photo({ photo, label, sizes, className = "", preload }: Props) {
       <div
         role="img"
         aria-label={label}
-        className={`absolute inset-0 flex items-end bg-gradient-to-br from-lake-700 via-lake-800 to-lake-900 p-4 ${className}`}
+        className={`absolute inset-0 flex items-end bg-gradient-to-br from-wine-700 via-wine-800 to-wine-900 p-4 ${className}`}
       >
         <span className="text-xs uppercase tracking-widest text-sand-200/70">{label}</span>
       </div>

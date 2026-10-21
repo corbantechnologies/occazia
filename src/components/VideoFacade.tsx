@@ -12,7 +12,7 @@ export function VideoFacade({ videoId, title }: Props) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div className="relative aspect-video overflow-hidden rounded-2xl bg-lake-900">
+    <div className="relative aspect-video overflow-hidden rounded-2xl bg-wine-900">
       {playing ? (
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`}
@@ -31,7 +31,7 @@ export function VideoFacade({ videoId, title }: Props) {
             className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
           />
           <span className="absolute inset-0 flex items-center justify-center">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gold-500 text-lake-900 shadow-lg">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gold-500 text-wine-900 shadow-lg">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M8 5v14l11-7z" />
               </svg>

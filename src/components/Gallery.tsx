@@ -40,7 +40,7 @@ export function Gallery({ photos, categories }: Props) {
             type="button"
             aria-pressed={filter === c.id}
             onClick={() => setFilter(c.id)}
-            className="min-h-11 shrink-0 rounded-full border border-lake-700 px-5 text-sm font-semibold text-lake-700 aria-pressed:bg-lake-700 aria-pressed:text-white"
+            className="min-h-11 shrink-0 rounded-full border border-wine-700 px-5 text-sm font-semibold text-wine-700 aria-pressed:bg-wine-700 aria-pressed:text-white"
           >
             {c.label}
           </button>

@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  /* Lake Victoria blues */
-  --color-lake-50: #eef6f8;
-  --color-lake-100: #d5e8ee;
-  --color-lake-600: #1f6f86;
-  --color-lake-700: #175a6e;
-  --color-lake-800: #114556;
-  --color-lake-900: #0b2f3b;
+  /* Hotel reds, taken from the logo (#922c26) and the rooms' red furnishings */
+  --color-wine-50: #fbf1f0;
+  --color-wine-100: #f5dcd9;
+  --color-wine-600: #a8322b;
+  --color-wine-700: #922c26;
+  --color-wine-800: #6f201c;
+  --color-wine-900: #2a1715;
 
   /* Warm sand and sunset gold */
   --color-sand-50: #fbf8f2;
@@ -16,10 +16,7 @@
   --color-gold-500: #c8952f;
   --color-gold-600: #8a6418;
 
-  /* Logo red */
-  --color-brand: #922c26;
-
-  --color-ink: #1c2529;
+  --color-ink: #231a19;
   --color-whatsapp: #117a3e;
 
   --font-sans: var(--font-body);

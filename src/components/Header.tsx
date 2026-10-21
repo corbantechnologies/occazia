@@ -12,13 +12,13 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-lake-900/10 bg-sand-50/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-wine-900/10 bg-sand-50/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2.5">
-          <LogoMark className="h-10 w-auto text-brand" />
+          <LogoMark className="h-10 w-auto text-wine-700" />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-xl font-semibold text-lake-900">Hotel Occazia</span>
-            <span className="text-[11px] uppercase tracking-[0.2em] text-brand">Homa Bay</span>
+            <span className="font-display text-xl font-semibold text-wine-900">Hotel Occazia</span>
+            <span className="text-[11px] uppercase tracking-[0.2em] text-wine-700">Homa Bay</span>
           </span>
         </Link>
 
@@ -28,21 +28,21 @@ export function Header() {
               key={item.href}
               href={item.href}
               aria-current={pathname.startsWith(item.href) ? "page" : undefined}
-              className="text-sm font-medium text-ink/80 hover:text-lake-700 aria-[current=page]:text-lake-700"
+              className="text-sm font-medium text-ink/80 hover:text-wine-700 aria-[current=page]:text-wine-700"
             >
               {item.label}
             </Link>
           ))}
           <Link
             href="/booking"
-            className="rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-lake-900 hover:bg-gold-600 hover:text-white"
+            className="rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-wine-900 hover:bg-gold-600 hover:text-white"
           >
             Book now
           </Link>
         </nav>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <a href={telHref} className="rounded-full px-3 py-2 text-sm font-medium text-lake-700" data-track="call">
+          <a href={telHref} className="rounded-full px-3 py-2 text-sm font-medium text-wine-700" data-track="call">
             Call
           </a>
           <button
@@ -50,7 +50,7 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="flex h-11 w-11 items-center justify-center rounded-full text-lake-900"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-wine-900"
           >
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
@@ -61,7 +61,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav id="mobile-menu" aria-label="Main" className="border-t border-lake-900/10 bg-sand-50 lg:hidden">
+        <nav id="mobile-menu" aria-label="Main" className="border-t border-wine-900/10 bg-sand-50 lg:hidden">
           <ul className="mx-auto max-w-6xl px-4 py-2">
             {[...nav, { href: "/booking", label: "Book now" }].map((item) => (
               <li key={item.href}>

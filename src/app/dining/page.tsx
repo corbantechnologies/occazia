@@ -29,7 +29,7 @@ export default function DiningPage() {
       <section className="mx-auto max-w-6xl px-4 py-14" aria-labelledby="restaurant-heading">
         <div className="grid gap-10 md:grid-cols-2">
           <div>
-            <h2 id="restaurant-heading" className="font-display text-3xl font-semibold text-lake-900">The restaurant</h2>
+            <h2 id="restaurant-heading" className="font-display text-3xl font-semibold text-wine-900">The restaurant</h2>
             <p className="mt-3 text-ink/80">
               Breakfast, lunch and dinner every day, from the morning buffet to dinner with fish fresh from Lake Victoria.
             </p>
@@ -42,7 +42,7 @@ export default function DiningPage() {
               ))}
             </ul>
           </div>
-          <dl className="h-fit rounded-2xl bg-white p-6 ring-1 ring-lake-900/5">
+          <dl className="h-fit rounded-2xl bg-white p-6 ring-1 ring-wine-900/5">
             <dt className="text-xs font-semibold uppercase tracking-widest text-gold-600">Restaurant hours</dt>
             <dd className="mt-1 text-lg">{hotel.hours.restaurant.label}</dd>
             <dt className="mt-5 text-xs font-semibold uppercase tracking-widest text-gold-600">Room service</dt>
@@ -50,7 +50,7 @@ export default function DiningPage() {
             <dt className="mt-5 text-xs font-semibold uppercase tracking-widest text-gold-600">Groups and functions</dt>
             <dd className="mt-1">
               Luncheon and dinner meetings from KSh 1,500 per person.{" "}
-              <Link href="/events" className="font-semibold text-lake-700 underline underline-offset-4">Conferences and events</Link>
+              <Link href="/events" className="font-semibold text-wine-700 underline underline-offset-4">Conferences and events</Link>
             </dd>
           </dl>
         </div>
@@ -59,7 +59,7 @@ export default function DiningPage() {
         </div>
       </section>
 
-      <section className="bg-lake-800 text-white" aria-labelledby="lounge-heading">
+      <section className="bg-wine-800 text-white" aria-labelledby="lounge-heading">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <h2 id="lounge-heading" className="font-display text-3xl font-semibold">Bar and lounge</h2>
           <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sand-100">
@@ -74,7 +74,7 @@ export default function DiningPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14 text-center" aria-labelledby="reserve-heading">
-        <h2 id="reserve-heading" className="font-display text-3xl font-semibold text-lake-900">Reserve a table</h2>
+        <h2 id="reserve-heading" className="font-display text-3xl font-semibold text-wine-900">Reserve a table</h2>
         <p className="mt-2 text-ink/80">Message us with the date, time and number of guests.</p>
         <div className="mt-6 flex justify-center">
           <ContactButtons whatsappMessage={tableMessage} whatsappLabel="Reserve on WhatsApp" />

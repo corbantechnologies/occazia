@@ -22,23 +22,23 @@ export default function BookingPage() {
       <JsonLd data={breadcrumbSchema([["Book a room", "/booking"]])} />
       <div>
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-600">Book direct</p>
-        <h1 className="mt-2 font-display text-4xl font-semibold text-lake-900 sm:text-5xl">Book your stay</h1>
+        <h1 className="mt-2 font-display text-4xl font-semibold text-wine-900 sm:text-5xl">Book your stay</h1>
         <p className="mt-3 max-w-2xl text-ink/80">
           Fill in your dates and we&apos;ll confirm availability and the best rate. Your enquiry opens in WhatsApp, ready to send.
         </p>
-        <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-lake-900/5">
+        <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-wine-900/5">
           {/* The form reads ?room= from the URL, so it renders on the client inside Suspense. */}
           <Suspense fallback={<div className="h-96" aria-hidden />}>
             <BookingForm />
           </Suspense>
         </div>
         <p className="mt-6 text-sm text-ink/70">
-          Booking for a conference or group? See <Link href="/events" className="font-semibold text-lake-700 underline underline-offset-4">conference packages</Link>.
+          Booking for a conference or group? See <Link href="/events" className="font-semibold text-wine-700 underline underline-offset-4">conference packages</Link>.
         </p>
       </div>
 
       <aside className="space-y-6">
-        <div className="rounded-2xl bg-lake-800 p-6 text-white">
+        <div className="rounded-2xl bg-wine-800 p-6 text-white">
           <h2 className="font-display text-2xl font-semibold">Prefer to talk?</h2>
           <p className="mt-2 text-sand-100">Our front desk is open 24 hours.</p>
           <ul className="mt-4 space-y-2">
@@ -50,13 +50,13 @@ export default function BookingPage() {
             </li>
           </ul>
         </div>
-        <div className="rounded-2xl bg-white p-6 ring-1 ring-lake-900/5">
-          <h2 className="font-display text-xl font-semibold text-lake-900">Rates with breakfast</h2>
+        <div className="rounded-2xl bg-white p-6 ring-1 ring-wine-900/5">
+          <h2 className="font-display text-xl font-semibold text-wine-900">Rates with breakfast</h2>
           <ul className="mt-3 space-y-2">
             {rooms.map((room) => (
               <li key={room.slug} className="flex justify-between gap-3">
                 <Link href={`/rooms/${room.slug}`} className="underline-offset-4 hover:underline">{room.name}</Link>
-                <span className="font-semibold text-lake-800">{formatKsh(room.rates.BB)}</span>
+                <span className="font-semibold text-wine-800">{formatKsh(room.rates.BB)}</span>
               </li>
             ))}
           </ul>

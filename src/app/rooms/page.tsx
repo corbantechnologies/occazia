@@ -28,24 +28,24 @@ export default function RoomsPage() {
       <section className="mx-auto max-w-6xl px-4 py-14" aria-label="Room types">
         <ul className="grid gap-8 md:grid-cols-3">
           {rooms.map((room) => (
-            <li key={room.slug} className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-lake-900/5">
+            <li key={room.slug} className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-wine-900/5">
               <Link href={`/rooms/${room.slug}`} className="relative block aspect-[4/3]">
                 <Photo photo={photoSlots[`rooms-${room.slug}`]} label={room.name} sizes="(min-width: 768px) 33vw, 100vw" />
               </Link>
               <div className="flex flex-1 flex-col p-5">
-                <h2 className="font-display text-2xl font-semibold text-lake-900">
+                <h2 className="font-display text-2xl font-semibold text-wine-900">
                   <Link href={`/rooms/${room.slug}`}>{room.name}</Link>
                 </h2>
                 <p className="mt-1 text-sm text-ink/70">
                   {room.bed} · {room.view} · {room.units} rooms
                 </p>
                 <p className="mt-3 text-ink/80">{room.summary}</p>
-                <p className="mt-4">
-                  From <strong className="text-lg text-lake-800">{formatKsh(room.rates.BB)}</strong> / night with breakfast
+                <p className="mt-auto pt-4">
+                  From <strong className="text-lg text-wine-800">{formatKsh(room.rates.BB)}</strong> / night with breakfast
                 </p>
                 <Link
                   href={`/rooms/${room.slug}`}
-                  className="mt-5 self-start rounded-full bg-lake-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-lake-800"
+                  className="mt-5 self-start rounded-full bg-wine-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-wine-800"
                 >
                   View {room.name}
                 </Link>
@@ -57,14 +57,14 @@ export default function RoomsPage() {
 
       <section className="bg-white" aria-labelledby="rates-heading">
         <div className="mx-auto max-w-6xl px-4 py-14">
-          <h2 id="rates-heading" className="font-display text-3xl font-semibold text-lake-900">
+          <h2 id="rates-heading" className="font-display text-3xl font-semibold text-wine-900">
             Room rates
           </h2>
           <p className="mt-2 text-ink/80">Per room per night, in Kenya shillings.</p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[32rem] text-left">
               <thead>
-                <tr className="border-b border-lake-900/15 text-sm text-ink/70">
+                <tr className="border-b border-wine-900/15 text-sm text-ink/70">
                   <th scope="col" className="py-3 pr-4 font-semibold">Room</th>
                   {Object.values(mealPlans).map((plan) => (
                     <th key={plan} scope="col" className="py-3 pr-4 font-semibold">{plan}</th>
@@ -73,8 +73,8 @@ export default function RoomsPage() {
               </thead>
               <tbody>
                 {rooms.map((room) => (
-                  <tr key={room.slug} className="border-b border-lake-900/10">
-                    <th scope="row" className="py-3 pr-4 font-semibold text-lake-900">{room.name}</th>
+                  <tr key={room.slug} className="border-b border-wine-900/10">
+                    <th scope="row" className="py-3 pr-4 font-semibold text-wine-900">{room.name}</th>
                     <td className="py-3 pr-4">{formatKsh(room.rates.BB)}</td>
                     <td className="py-3 pr-4">{formatKsh(room.rates.HB)}</td>
                     <td className="py-3 pr-4">{formatKsh(room.rates.FB)}</td>
@@ -92,7 +92,7 @@ export default function RoomsPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14" aria-labelledby="amenities-heading">
-        <h2 id="amenities-heading" className="font-display text-3xl font-semibold text-lake-900">
+        <h2 id="amenities-heading" className="font-display text-3xl font-semibold text-wine-900">
           Included with every stay
         </h2>
         <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
