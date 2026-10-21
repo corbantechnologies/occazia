@@ -54,9 +54,20 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <p className="border-t border-white/10 px-4 py-4 text-center text-xs text-sand-200/70">
-        © {hotel.name}. All rights reserved.
-      </p>
+      <div className="border-t border-white/10 px-4 py-4 text-center text-xs text-sand-200/70">
+        <p>© {hotel.name}. All rights reserved.</p>
+        <p className="mt-1">
+          Website designed and built by{" "}
+          <a
+            href="https://www.corbantechnologies.org"
+            target="_blank"
+            rel="noopener"
+            className="underline underline-offset-2 hover:text-white"
+          >
+            Corban Technologies LTD
+          </a>
+        </p>
+      </div>
     </footer>
   );
 }
