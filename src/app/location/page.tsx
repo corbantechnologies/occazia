@@ -1,12 +1,14 @@
 import { ContactButtons } from "@/components/ContactButtons";
+import { JsonLd } from "@/components/JsonLd";
 import { MapFacade } from "@/components/MapFacade";
 import { PageHero } from "@/components/PageHero";
 import { hotel } from "@/data/hotel";
 import { photoSlots } from "@/data/photos";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
-  title: "Location and Directions",
+  title: "Location and Directions in Homa Bay",
   description: `${hotel.name} is at Got Rabuor, off the Kisumu–Homa Bay Highway, about 2 hours from Kisumu International Airport and 10 minutes from Kabunde Airstrip.`,
   path: "/location",
   photo: photoSlots.location,
@@ -18,6 +20,7 @@ export default function LocationPage() {
 
   return (
     <>
+      <JsonLd data={breadcrumbSchema([["Location", "/location"]])} />
       <PageHero eyebrow="Location" title="Getting to Hotel Occazia Homa Bay" photo={photoSlots.location}>
         At Got Rabuor, just off the Kisumu–Homa Bay Highway, a few minutes from Homa Bay town and the shores of Lake Victoria.
       </PageHero>

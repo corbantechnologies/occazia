@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Photo } from "@/components/Photo";
 import { halls } from "@/data/events";
@@ -5,6 +6,10 @@ import { formatKsh, hotel } from "@/data/hotel";
 import { photoSlots } from "@/data/photos";
 import { rooms } from "@/data/rooms";
 import { telHref, whatsappHref } from "@/lib/contact";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

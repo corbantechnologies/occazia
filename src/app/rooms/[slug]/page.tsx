@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactButtons } from "@/components/ContactButtons";
+import { JsonLd } from "@/components/JsonLd";
 import { PhotoStrip } from "@/components/PhotoStrip";
 import { formatKsh, hotel } from "@/data/hotel";
 import { roomPhotos } from "@/data/photos";
 import { getRoom, mealPlans, roomPolicies, rooms, type MealPlan } from "@/data/rooms";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, roomSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return rooms.map((room) => ({ slug: room.slug }));
@@ -34,6 +36,9 @@ export default async function RoomPage(props: PageProps<"/rooms/[slug]">) {
 
   return (
     <>
+      <JsonLd
+        data={[breadcrumbSchema([["Rooms", "/rooms"], [room.name, `/rooms/${room.slug}`]]), roomSchema(room)]}
+      />
       <section className="mx-auto max-w-6xl px-4 pb-6 pt-8">
         <nav aria-label="Breadcrumb" className="text-sm text-ink/70">
           <Link href="/rooms" className="underline-offset-4 hover:underline">Rooms</Link>

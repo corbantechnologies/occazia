@@ -1,8 +1,10 @@
 import { Gallery } from "@/components/Gallery";
+import { JsonLd } from "@/components/JsonLd";
 import { VideoFacade } from "@/components/VideoFacade";
 import { hotel } from "@/data/hotel";
 import { gallery, photoCategories, photoSlots } from "@/data/photos";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   title: "Photo Gallery",
@@ -16,6 +18,7 @@ const videoId = new URL(hotel.social.youtube).pathname.slice(1);
 export default function GalleryPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-12">
+      <JsonLd data={breadcrumbSchema([["Gallery", "/gallery"]])} />
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-600">Gallery</p>
       <h1 className="mt-2 font-display text-4xl font-semibold text-lake-900 sm:text-5xl">Take a look around</h1>
       <p className="mt-3 max-w-2xl text-ink/80">Tap any photo to view it full screen, then swipe to see the next one.</p>

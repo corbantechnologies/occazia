@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ContactButtons } from "@/components/ContactButtons";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PhotoStrip } from "@/components/PhotoStrip";
 import { eventFacilities, eventPackages, halls } from "@/data/events";
@@ -7,6 +8,7 @@ import { formatKsh, hotel } from "@/data/hotel";
 import { eventPhotos, photoSlots } from "@/data/photos";
 import { rooms } from "@/data/rooms";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, venueSchema } from "@/lib/schema";
 
 const largest = Math.max(...halls.map((h) => h.capacity));
 
@@ -31,6 +33,7 @@ export default function EventsPage() {
 
   return (
     <>
+      <JsonLd data={[breadcrumbSchema([["Conferences & events", "/events"]]), venueSchema()]} />
       <PageHero eyebrow="Conferences & events" title="Conference venue in Homa Bay" photo={photoSlots.events}>
         Three halls for {halls.map((h) => h.capacity).join(", ")} guests, with projector, Wi-Fi, catering and{" "}
         {hotel.rooms} delegate rooms under one roof.

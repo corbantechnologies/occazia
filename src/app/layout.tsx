@@ -3,7 +3,10 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MobileActionBar } from "@/components/MobileActionBar";
+import { JsonLd } from "@/components/JsonLd";
 import { hotel } from "@/data/hotel";
+import { photoSlots } from "@/data/photos";
+import { hotelSchema } from "@/lib/schema";
 import "./globals.css";
 
 const body = Inter({
@@ -28,6 +31,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: hotel.name,
     locale: hotel.locale,
+    images: photoSlots.hero && [{ url: photoSlots.hero.src.src, alt: photoSlots.hero.alt }],
   },
   twitter: { card: "summary_large_image" },
   formatDetection: { telephone: false },
@@ -50,6 +54,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <MobileActionBar />
+        <JsonLd data={hotelSchema()} />
       </body>
     </html>
   );

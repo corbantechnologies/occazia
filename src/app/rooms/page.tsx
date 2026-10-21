@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ContactButtons } from "@/components/ContactButtons";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Photo } from "@/components/Photo";
 import { formatKsh, hotel } from "@/data/hotel";
 import { photoSlots } from "@/data/photos";
 import { mealPlans, roomPolicies, rooms } from "@/data/rooms";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   title: "Rooms in Homa Bay",
@@ -17,6 +19,7 @@ export const metadata = pageMetadata({
 export default function RoomsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([["Rooms", "/rooms"]])} />
       <PageHero eyebrow="Accommodation" title="Rooms in Homa Bay" photo={photoSlots["rooms-deluxe"]}>
         {hotel.rooms} smoke-free rooms, each with a private balcony, free Wi-Fi and buffet breakfast included. Check-in from{" "}
         {hotel.checkIn}, check-out by {hotel.checkOut}.

@@ -1,14 +1,16 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { BookingForm } from "@/components/BookingForm";
+import { JsonLd } from "@/components/JsonLd";
 import { formatKsh, hotel } from "@/data/hotel";
 import { photoSlots } from "@/data/photos";
 import { rooms } from "@/data/rooms";
 import { mailHref, telHref } from "@/lib/contact";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
-  title: "Book a Room",
+  title: "Book a Room in Homa Bay",
   description: `Book a room at ${hotel.name} directly by WhatsApp, phone or email. Rooms from ${formatKsh(hotel.priceFrom)} a night with breakfast.`,
   path: "/booking",
   photo: photoSlots.booking,
@@ -17,6 +19,7 @@ export const metadata = pageMetadata({
 export default function BookingPage() {
   return (
     <section className="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[1fr_20rem]">
+      <JsonLd data={breadcrumbSchema([["Book a room", "/booking"]])} />
       <div>
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-600">Book direct</p>
         <h1 className="mt-2 font-display text-4xl font-semibold text-lake-900 sm:text-5xl">Book your stay</h1>

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ContactButtons } from "@/components/ContactButtons";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PhotoStrip } from "@/components/PhotoStrip";
 import { loungeHighlights, restaurantHighlights } from "@/data/dining";
 import { hotel } from "@/data/hotel";
 import { diningPhotos, loungePhotos, photoSlots } from "@/data/photos";
 import { pageMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, restaurantSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   title: "Restaurant and Bar in Homa Bay",
@@ -19,6 +21,7 @@ const tableMessage = `Hi ${hotel.shortName}, I'd like to reserve a table for [nu
 export default function DiningPage() {
   return (
     <>
+      <JsonLd data={[breadcrumbSchema([["Dining", "/dining"]]), restaurantSchema()]} />
       <PageHero eyebrow="Dining" title="Restaurant and bar in Homa Bay" photo={photoSlots.dining}>
         Local and international food, fresh tilapia from the lake, and a bar and lounge to unwind in. {hotel.hours.restaurant.label}.
       </PageHero>
