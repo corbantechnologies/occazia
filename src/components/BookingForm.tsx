@@ -99,7 +99,7 @@ export function BookingForm() {
         <input name="guests" type="number" min={1} max={60} defaultValue={1} required className={field} />
       </label>
       <label className={`${label} sm:col-span-2`}>
-        Anything else? <span className="font-normal text-ink/60">(optional)</span>
+        Anything else? <span className="font-normal text-ink/70">(optional)</span>
         <textarea name="message" rows={3} className={`${field} py-2`} placeholder="Arrival time, number of rooms, special requests" />
       </label>
 

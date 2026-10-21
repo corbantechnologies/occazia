@@ -14,10 +14,13 @@
   --color-sand-100: #f4ecdd;
   --color-sand-200: #e8d9bc;
   --color-gold-500: #c8952f;
-  --color-gold-600: #a97a1f;
+  --color-gold-600: #8a6418;
+
+  /* Logo red */
+  --color-brand: #922c26;
 
   --color-ink: #1c2529;
-  --color-whatsapp: #1fa855;
+  --color-whatsapp: #117a3e;
 
   --font-sans: var(--font-body);
   --font-display: var(--font-heading);

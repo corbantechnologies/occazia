@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { hotel, nav } from "@/data/hotel";
+import { LogoMark } from "@/components/LogoMark";
+import { nav } from "@/data/hotel";
 import { telHref } from "@/lib/contact";
 
 export function Header() {
@@ -13,9 +14,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-lake-900/10 bg-sand-50/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <Link href="/" className="flex flex-col leading-none" aria-label={`${hotel.name}, home`}>
-          <span className="font-display text-xl font-semibold text-lake-900">Hotel Occazia</span>
-          <span className="text-[11px] uppercase tracking-[0.2em] text-gold-600">Homa Bay</span>
+        <Link href="/" className="flex items-center gap-2.5">
+          <LogoMark className="h-10 w-auto text-brand" />
+          <span className="flex flex-col leading-none">
+            <span className="font-display text-xl font-semibold text-lake-900">Hotel Occazia</span>
+            <span className="text-[11px] uppercase tracking-[0.2em] text-brand">Homa Bay</span>
+          </span>
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-6 lg:flex">

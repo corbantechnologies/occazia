@@ -37,6 +37,7 @@ export function hotelSchema() {
     alternateName: hotel.shortName,
     description: hotel.description,
     url: hotel.url,
+    logo: absolute("/logo.png"),
     telephone: hotel.contact.phone,
     email: hotel.contact.email,
     image: [photoSlots.hero, photoSlots["rooms-executive"], photoSlots.events, photoSlots.dining].map(imageUrl).filter(Boolean),

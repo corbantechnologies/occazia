@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { hotel, nav } from "@/data/hotel";
 import { mailHref, telHref, whatsappHref } from "@/lib/contact";
+import logoWhite from "../../public/logo-white.svg";
 
 export function Footer() {
   const { address, contact } = hotel;
@@ -9,7 +11,7 @@ export function Footer() {
     <footer className="bg-lake-900 pb-24 text-sand-100 md:pb-0">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
         <div>
-          <p className="font-display text-2xl font-semibold text-white">{hotel.name}</p>
+          <Image src={logoWhite} alt={hotel.name} className="h-24 w-auto" />
           <p className="mt-2 text-sm text-sand-200">{hotel.tagline}</p>
           {/* Name, address and phone in plain text for local SEO. */}
           <address className="mt-4 text-sm not-italic leading-relaxed">

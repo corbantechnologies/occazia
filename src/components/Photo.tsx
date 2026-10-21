@@ -11,6 +11,7 @@ type Props = {
 
 // Fills its parent (give the parent a size and `relative`). Shows a branded
 // placeholder until a real photo is assigned in src/data/photos.ts.
+// `preload` marks the above-the-fold hero: loaded eagerly at high priority.
 export function Photo({ photo, label, sizes, className = "", preload }: Props) {
   if (!photo) {
     return (
@@ -30,7 +31,8 @@ export function Photo({ photo, label, sizes, className = "", preload }: Props) {
       fill
       sizes={sizes}
       placeholder="blur"
-      preload={preload}
+      loading={preload ? "eager" : undefined}
+      fetchPriority={preload ? "high" : undefined}
       className={`object-cover ${className}`}
     />
   );

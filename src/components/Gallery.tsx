@@ -92,7 +92,7 @@ export function Gallery({ photos, categories }: Props) {
               <Image src={current.src} alt={current.alt} fill sizes="100vw" className="object-contain" />
             </div>
             <figcaption className="px-4 py-3 text-center text-sm text-sand-100">
-              {current.alt} <span className="text-sand-200/60">({(open ?? 0) + 1} of {shown.length})</span>
+              {current.alt} <span className="text-sand-200/80">({(open ?? 0) + 1} of {shown.length})</span>
             </figcaption>
           </figure>
         )}
