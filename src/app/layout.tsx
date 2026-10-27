@@ -22,7 +22,7 @@ const heading = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(hotel.url),
   title: {
-    default: `${hotel.name} | Hotel near Lake Victoria, Kenya`,
+    default: `${hotel.name} | Rooms & Conference Facilities`,
     template: `%s | ${hotel.name}`,
   },
   description: hotel.description,

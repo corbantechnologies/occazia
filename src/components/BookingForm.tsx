@@ -16,6 +16,11 @@ export function BookingForm() {
   const requested = params.get("room");
   const initialRoom = rooms.some((r) => r.slug === requested) ? requested! : rooms[0].slug;
   const [error, setError] = useState("");
+  // Dates and guests arrive from the home page availability bar.
+  const isDate = (v: string | null) => (v && /^\d{4}-\d{2}-\d{2}$/.test(v) ? v : undefined);
+  const checkIn = isDate(params.get("checkIn"));
+  const checkOut = isDate(params.get("checkOut"));
+  const guests = Number(params.get("guests")) || 1;
 
   function compose(form: HTMLFormElement) {
     const data = new FormData(form);
@@ -61,7 +66,7 @@ export function BookingForm() {
   const today = new Date().toISOString().slice(0, 10);
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2" data-track="booking-form">
+    <form id="booking-form" onSubmit={onSubmit} className="scroll-mt-24 grid gap-5 sm:grid-cols-2" data-track="booking-form">
       <label className={label}>
         Full name
         <input name="name" required autoComplete="name" className={field} />
@@ -72,11 +77,11 @@ export function BookingForm() {
       </label>
       <label className={label}>
         Check-in
-        <input name="checkIn" type="date" required min={today} className={field} />
+        <input name="checkIn" type="date" required min={today} defaultValue={checkIn} className={field} />
       </label>
       <label className={label}>
         Check-out
-        <input name="checkOut" type="date" required min={today} className={field} />
+        <input name="checkOut" type="date" required min={today} defaultValue={checkOut} className={field} />
       </label>
       <label className={label}>
         Room
@@ -96,7 +101,7 @@ export function BookingForm() {
       </label>
       <label className={label}>
         Guests
-        <input name="guests" type="number" min={1} max={60} defaultValue={1} required className={field} />
+        <input name="guests" type="number" min={1} max={60} defaultValue={Math.min(Math.max(guests, 1), 60)} required className={field} />
       </label>
       <label className={`${label} sm:col-span-2`}>
         Anything else? <span className="font-normal text-ink/70">(optional)</span>

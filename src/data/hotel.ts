@@ -68,6 +68,9 @@ export const hotel = {
     "Smoke-free rooms",
   ],
 
+  // TODO: swap for the hotel's Google Business Profile review link once shared.
+  googleReviews: "https://www.google.com/maps/search/?api=1&query=Hotel+Occazia+Homa+Bay",
+
   social: {
     youtube: "https://youtu.be/hjyKD7eAzHw",
   },

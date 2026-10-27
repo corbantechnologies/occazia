@@ -169,3 +169,6 @@ export const loungePhotos: Photo[] = [photos.barService, photos.loungeSeating, p
 
 // Gallery photos, in display order within each category.
 export const gallery: (Photo & { category: PhotoCategory })[] = Object.values(photos);
+
+// Home page "experience" row: people and atmosphere, not repeats of the section photos.
+export const experiencePhotos: Photo[] = [photos.restaurantTeam, photos.chef, photos.loungeBalcony];
