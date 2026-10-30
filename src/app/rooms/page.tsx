@@ -3,6 +3,7 @@ import { ContactButtons } from "@/components/ContactButtons";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Photo } from "@/components/Photo";
+import { RoomComparison } from "@/components/RoomComparison";
 import { formatKsh, hotel } from "@/data/hotel";
 import { photoSlots } from "@/data/photos";
 import { mealPlans, roomPolicies, rooms } from "@/data/rooms";
@@ -39,7 +40,7 @@ export default function RoomsPage() {
                 <p className="mt-1 text-sm text-ink/70">
                   {room.bed} · {room.view} · {room.units} rooms
                 </p>
-                <p className="mt-3 text-ink/80">{room.summary}</p>
+                <p className="mt-3 text-ink/80">{room.bestFor}</p>
                 <p className="mt-auto pt-4">
                   From <strong className="text-lg text-wine-800">{formatKsh(room.rates.BB)}</strong> / night with breakfast
                 </p>
@@ -53,6 +54,15 @@ export default function RoomsPage() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-14" aria-labelledby="compare-heading">
+        <h2 id="compare-heading" className="font-display text-3xl font-semibold text-wine-900">
+          Which room is right for you?
+        </h2>
+        <div className="mt-6">
+          <RoomComparison />
+        </div>
       </section>
 
       <section className="bg-white" aria-labelledby="rates-heading">
@@ -88,6 +98,11 @@ export default function RoomsPage() {
               <li key={policy}>{policy}</li>
             ))}
           </ul>
+          <p className="mt-4 text-sm">
+            <Link href="/faq#policies" className="font-semibold text-wine-700 underline underline-offset-4">
+              Booking, payment and cancellation policies
+            </Link>
+          </p>
         </div>
       </section>
 

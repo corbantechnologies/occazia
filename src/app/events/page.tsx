@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ConferenceForm } from "@/components/ConferenceForm";
 import { ContactButtons } from "@/components/ContactButtons";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
@@ -26,7 +27,7 @@ const audiences = [
   { title: "Celebrations", detail: "Luncheons, dinners, graduations and private functions with our own catering." },
 ];
 
-const quoteMessage = `Hi ${hotel.shortName}, I'd like a quote for a conference/event.\nDate: [date]\nNumber of people: [number]\nPackage: [full day / half day / other]\nDelegate rooms needed: [yes/no]`;
+const quoteMessage = `Hello ${hotel.shortName}, I would like a quotation for a conference for [number] delegates on [date]. Please share your available packages, catering options and accommodation rates.`;
 
 export default function EventsPage() {
   const delegateRate = Math.min(...rooms.map((r) => r.rates.BB));
@@ -78,7 +79,12 @@ export default function EventsPage() {
             <Link href="/rooms" className="font-semibold text-white underline underline-offset-4">See rooms</Link>
           </p>
           <div className="mt-8">
-            <ContactButtons tone="dark" whatsappMessage={quoteMessage} whatsappLabel="Get a quote on WhatsApp" />
+            <div className="flex flex-wrap gap-3">
+              <a href="#quote-form" className="rounded-full bg-gold-500 px-6 py-3 font-semibold text-wine-900 hover:bg-white">
+                Request a quote
+              </a>
+              <ContactButtons tone="dark" whatsappMessage={quoteMessage} whatsappLabel="Get a quote on WhatsApp" />
+            </div>
           </div>
         </div>
       </section>
@@ -109,13 +115,20 @@ export default function EventsPage() {
       </section>
 
       <section className="bg-white" aria-labelledby="quote-heading">
-        <div className="mx-auto max-w-6xl px-4 py-14 text-center">
-          <h2 id="quote-heading" className="font-display text-3xl font-semibold text-wine-900">Planning an event?</h2>
-          <p className="mx-auto mt-2 max-w-xl text-ink/80">
-            Send us the date, number of guests and what you need, and we&apos;ll come back with a quote.
-          </p>
-          <div className="mt-6 flex justify-center">
-            <ContactButtons whatsappMessage={quoteMessage} whatsappLabel="Get a quote on WhatsApp" showBooking />
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 lg:grid-cols-[20rem_1fr]">
+          <div>
+            <h2 id="quote-heading" className="font-display text-3xl font-semibold text-wine-900">Request a quote</h2>
+            <p className="mt-3 text-ink/80">
+              Tell us the date, number of delegates and what you need. We&apos;ll reply with a quotation covering the hall,
+              meals and delegate rooms.
+            </p>
+            <p className="mt-4 text-sm text-ink/70">Prefer to talk it through?</p>
+            <div className="mt-3">
+              <ContactButtons whatsappMessage={quoteMessage} whatsappLabel="WhatsApp us" />
+            </div>
+          </div>
+          <div className="rounded-2xl bg-sand-50 p-6 ring-1 ring-wine-900/5">
+            <ConferenceForm />
           </div>
         </div>
       </section>

@@ -11,7 +11,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata = pageMetadata({
   title: "Book a Room in Homa Bay",
-  description: `Book a room at ${hotel.name} directly by WhatsApp, phone or email. Rooms from ${formatKsh(hotel.priceFrom)} a night with breakfast.`,
+  description: `Book a room at ${hotel.name} directly online, by WhatsApp or by phone. Rooms from ${formatKsh(hotel.priceFrom)} a night with breakfast.`,
   path: "/booking",
   photo: photoSlots.booking,
 });
@@ -24,7 +24,7 @@ export default function BookingPage() {
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-600">Book direct</p>
         <h1 className="mt-2 font-display text-4xl font-semibold text-wine-900 sm:text-5xl">Book your stay</h1>
         <p className="mt-3 max-w-2xl text-ink/80">
-          Fill in your dates and we&apos;ll confirm availability and the best rate. Your enquiry opens in WhatsApp, ready to send.
+          Send us your dates and we&apos;ll confirm availability and your rate by email or phone. You&apos;ll get a reference number straight away.
         </p>
         <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-wine-900/5">
           {/* The form reads ?room= from the URL, so it renders on the client inside Suspense. */}
@@ -46,7 +46,7 @@ export default function BookingPage() {
               Call <a href={telHref} data-track="call" className="font-semibold underline underline-offset-4">{hotel.contact.phoneDisplay}</a>
             </li>
             <li>
-              Email <a href={mailHref} className="font-semibold underline underline-offset-4 break-all">{hotel.contact.reservationsEmail}</a>
+              Email <a href={mailHref} className="font-semibold underline underline-offset-4 break-all">{hotel.contact.email}</a>
             </li>
           </ul>
         </div>

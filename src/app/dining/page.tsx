@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ContactButtons } from "@/components/ContactButtons";
+import { DiningForm } from "@/components/DiningForm";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PhotoStrip } from "@/components/PhotoStrip";
@@ -73,11 +74,19 @@ export default function DiningPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-14 text-center" aria-labelledby="reserve-heading">
-        <h2 id="reserve-heading" className="font-display text-3xl font-semibold text-wine-900">Reserve a table</h2>
-        <p className="mt-2 text-ink/80">Message us with the date, time and number of guests.</p>
-        <div className="mt-6 flex justify-center">
-          <ContactButtons whatsappMessage={tableMessage} whatsappLabel="Reserve on WhatsApp" />
+      <section className="mx-auto grid max-w-6xl gap-10 px-4 py-14 lg:grid-cols-[20rem_1fr]" aria-labelledby="reserve-heading">
+        <div>
+          <h2 id="reserve-heading" className="font-display text-3xl font-semibold text-wine-900">Reserve a table</h2>
+          <p className="mt-3 text-ink/80">
+            Booking for a birthday, group meal or private function? Send us the details and we&apos;ll confirm your table.
+          </p>
+          <p className="mt-4 text-sm text-ink/70">Or message us directly:</p>
+          <div className="mt-3">
+            <ContactButtons whatsappMessage={tableMessage} whatsappLabel="Reserve on WhatsApp" />
+          </div>
+        </div>
+        <div className="rounded-2xl bg-white p-6 ring-1 ring-wine-900/5">
+          <DiningForm />
         </div>
       </section>
     </>

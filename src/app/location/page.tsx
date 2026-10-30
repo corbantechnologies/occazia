@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ContactButtons } from "@/components/ContactButtons";
 import { JsonLd } from "@/components/JsonLd";
 import { MapFacade } from "@/components/MapFacade";
@@ -72,6 +73,11 @@ export default function LocationPage() {
               <li key={place} className="rounded-full bg-wine-50 px-4 py-2 text-wine-800">{place}</li>
             ))}
           </ul>
+          <p className="mt-6">
+            <Link href="/explore" className="font-semibold text-wine-700 underline underline-offset-4">
+              Things to do in Homa Bay
+            </Link>
+          </p>
         </div>
       </section>
 

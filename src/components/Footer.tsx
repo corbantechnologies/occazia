@@ -34,7 +34,7 @@ export function Footer() {
               </a>
             </li>
             <li>
-              Email: <a href={mailHref} className="underline-offset-4 hover:underline">{contact.reservationsEmail}</a>
+              Email: <a href={mailHref} className="underline-offset-4 hover:underline">{contact.email}</a>
             </li>
             <li>Restaurant: {hotel.hours.restaurant.label}</li>
             <li>Front desk: {hotel.hours.frontDesk}</li>
@@ -44,7 +44,7 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold uppercase tracking-widest text-gold-500">Explore</p>
           <ul className="mt-3 grid grid-cols-2 gap-2 text-sm">
-            {[...nav, { href: "/booking", label: "Book a room" }].map((item) => (
+            {[...nav, { href: "/faq", label: "FAQ & policies" }, { href: "/booking", label: "Book a room" }].map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="underline-offset-4 hover:underline">
                   {item.label}

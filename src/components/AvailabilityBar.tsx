@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
+import { track } from "@/lib/analytics";
 
 const field =
   "mt-1 block min-h-11 w-full min-w-0 rounded-lg border border-wine-900/20 bg-white px-2.5 text-base text-ink focus:border-wine-700 focus:outline-none";
@@ -29,6 +30,7 @@ export function AvailabilityBar() {
       return;
     }
     setError("");
+    track("check_availability", { guests: Number(data.get("guests")) });
     const query = new URLSearchParams({ checkIn, checkOut, guests: String(data.get("guests")) });
     router.push(`/booking?${query}#booking-form`);
   }

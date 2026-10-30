@@ -18,7 +18,6 @@ export const hotel = {
     whatsapp: "254110287734",
     whatsappDisplay: "+254 110 287 734",
     email: "info@occaziakenya.com",
-    reservationsEmail: "reservations@occaziakenya.com",
   },
 
   address: {
@@ -82,6 +81,7 @@ export const nav = [
   { href: "/dining", label: "Dining" },
   { href: "/gallery", label: "Gallery" },
   { href: "/location", label: "Location" },
+  { href: "/explore", label: "Explore" },
 ] as const;
 
 export function formatKsh(amount: number) {

@@ -4,10 +4,12 @@ import { ContactButtons } from "@/components/ContactButtons";
 import { ArrowLeftIcon, ArrowRightIcon, BedIcon, CheckIcon, DoorIcon, GuestsIcon, ViewIcon } from "@/components/icons";
 import { JsonLd } from "@/components/JsonLd";
 import { Photo } from "@/components/Photo";
+import { RoomComparison } from "@/components/RoomComparison";
 import { RoomGallery } from "@/components/RoomGallery";
 import { formatKsh, hotel } from "@/data/hotel";
 import { photoSlots, roomPhotos } from "@/data/photos";
-import { getRoom, mealPlans, roomPolicies, rooms, type MealPlan } from "@/data/rooms";
+import { policies } from "@/data/policies";
+import { getRoom, mealPlans, rateIncludes, rooms, type MealPlan } from "@/data/rooms";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, roomSchema } from "@/lib/schema";
 
@@ -39,8 +41,8 @@ export default async function RoomPage(props: PageProps<"/rooms/[slug]">) {
   const specs = [
     { icon: BedIcon, term: "Bed", detail: room.bed },
     { icon: ViewIcon, term: "Outlook", detail: room.view },
-    { icon: DoorIcon, term: "Rooms of this type", detail: `${room.units} rooms` },
-    { icon: GuestsIcon, term: "Ideal for", detail: room.idealFor },
+    { icon: GuestsIcon, term: "Sleeps", detail: room.guests },
+    { icon: DoorIcon, term: "Size", detail: room.size },
   ];
 
   return (
@@ -81,7 +83,7 @@ export default async function RoomPage(props: PageProps<"/rooms/[slug]">) {
             </h2>
             <dl className="mt-4 grid grid-cols-2 gap-4">
               {specs.map(({ icon: SpecIcon, term, detail }) => (
-                <div key={term} className={term === "Ideal for" ? "col-span-2 flex gap-3" : "flex gap-3"}>
+                <div key={term} className="flex gap-3">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sand-100 text-wine-700">
                     <SpecIcon />
                   </span>
@@ -116,30 +118,30 @@ export default async function RoomPage(props: PageProps<"/rooms/[slug]">) {
               </table>
             </div>
 
-            <div className="mt-5 [&_a]:w-full [&_a]:text-center">
-              <ContactButtons whatsappMessage={bookMessage} whatsappLabel={`Book on WhatsApp`} />
-            </div>
             <Link
-              href={`/booking?room=${room.slug}`}
-              className="mt-3 block text-center text-sm font-semibold text-wine-700 underline underline-offset-4"
+              href={`/booking?room=${room.slug}#booking-form`}
+              className="mt-5 block rounded-full bg-gold-500 px-6 py-3 text-center font-semibold text-wine-900 hover:bg-wine-700 hover:text-white"
             >
-              Or send a booking enquiry
+              Book this room
             </Link>
-            <ul className="mt-4 space-y-1 border-t border-wine-900/10 pt-3 text-xs text-ink/70">
-              <li>Check-in from {hotel.checkIn}, check-out by {hotel.checkOut}.</li>
-              {roomPolicies.slice(1).map((policy) => (
-                <li key={policy}>{policy}</li>
-              ))}
-            </ul>
+            <div className="mt-3 [&_a]:w-full [&_a]:text-center">
+              <ContactButtons whatsappMessage={bookMessage} whatsappLabel="Book on WhatsApp" />
+            </div>
+            <p className="mt-4 border-t border-wine-900/10 pt-3 text-xs text-ink/70">
+              Check-in from {hotel.checkIn}, check-out by {hotel.checkOut}.{" "}
+              <a href="#policies" className="font-semibold text-wine-700 underline underline-offset-2">Booking policies</a>
+            </p>
           </div>
         </aside>
 
         <div className="lg:col-start-1 lg:row-start-2">
           <h2 className="font-display text-2xl font-semibold text-wine-900">About the room</h2>
+          <p className="mt-3 text-lg font-semibold text-wine-800">{room.bestFor}</p>
           <p className="mt-3 text-ink/80">
             {room.summary} Ideal for {room.idealFor.charAt(0).toLowerCase() + room.idealFor.slice(1)}. All rooms are
             smoke-free, with buffet breakfast, free Wi-Fi and 24-hour room service.
           </p>
+          {room.upgrade && <p className="mt-3 text-ink/80">{room.upgrade}</p>}
 
           <h2 className="mt-10 font-display text-2xl font-semibold text-wine-900">In the room</h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -152,14 +154,46 @@ export default async function RoomPage(props: PageProps<"/rooms/[slug]">) {
               </li>
             ))}
           </ul>
+
+          <h2 className="mt-10 font-display text-2xl font-semibold text-wine-900">Included in your rate</h2>
+          <ul className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+            {rateIncludes.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-ink/80">
+                <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <h2 id="policies" className="mt-10 scroll-mt-24 font-display text-2xl font-semibold text-wine-900">Booking policies</h2>
+          <div className="mt-4 divide-y divide-wine-900/10 rounded-2xl bg-white ring-1 ring-wine-900/5">
+            {policies.map((policy) => (
+              <details key={policy.title} className="group px-5 py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-wine-900">
+                  {policy.title}
+                  <span aria-hidden className="text-xl text-wine-700 transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-2 text-sm text-ink/80">{policy.detail}</p>
+              </details>
+            ))}
+          </div>
         </div>
 
+      </section>
+
+      <section className="bg-white" aria-labelledby="compare-heading">
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <h2 id="compare-heading" className="font-display text-3xl font-semibold text-wine-900">How the rooms compare</h2>
+          <div className="mt-6">
+            <RoomComparison current={room.slug} />
+          </div>
+        </div>
       </section>
 
       <section className="border-t border-wine-900/10" aria-labelledby="other-rooms-heading">
         <div className="mx-auto max-w-6xl px-4 py-14">
           <h2 id="other-rooms-heading" className="text-center font-display text-3xl font-semibold text-wine-900">
-            Compare other rooms
+            Other rooms
           </h2>
           <ul className="mt-8 grid gap-6 md:grid-cols-2">
             {otherRooms.map((other) => (

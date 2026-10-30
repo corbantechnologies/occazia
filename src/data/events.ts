@@ -4,12 +4,12 @@ export type Hall = {
   capacity: number;
 };
 
-// The hotel's halls have no names; capacities confirmed by the owner (Oct 2026).
+// The hotel's halls have no names; capacities confirmed by the hotel (27 Oct 2026: 120, 80, 30).
 // TODO: confirm whether these are theatre-style maximums, and per-hall equipment.
 export const halls: Hall[] = [
   { id: "hall-1", name: "Hall 1", capacity: 120 },
   { id: "hall-2", name: "Hall 2", capacity: 80 },
-  { id: "hall-3", name: "Hall 3", capacity: 40 },
+  { id: "hall-3", name: "Hall 3", capacity: 30 },
 ];
 
 export const eventPackages = [

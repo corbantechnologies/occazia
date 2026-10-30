@@ -1,7 +1,7 @@
 import { hotel } from "@/data/hotel";
 
 export const telHref = `tel:${hotel.contact.phone}`;
-export const mailHref = `mailto:${hotel.contact.reservationsEmail}`;
+export const mailHref = `mailto:${hotel.contact.email}`;
 
 export function whatsappHref(message = `Hi ${hotel.shortName}, I'd like to make an enquiry.`) {
   return `https://wa.me/${hotel.contact.whatsapp}?text=${encodeURIComponent(message)}`;

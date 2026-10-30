@@ -56,7 +56,7 @@ export default function Home() {
           </div>
           <p className="mt-4 text-sm text-sand-100">
             Planning a conference or event?{" "}
-            <Link href="/events" className="font-semibold text-white underline underline-offset-4">
+            <Link href="/events#quote-form" className="font-semibold text-white underline underline-offset-4">
               Request a quote
             </Link>
           </p>
@@ -115,11 +115,11 @@ export default function Home() {
               rooms on site. Full-day packages from {formatKsh(2500)} per person.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/events" className="rounded-full bg-gold-500 px-6 py-3 font-semibold text-wine-900 hover:bg-white">
-                See packages
+              <Link href="/events#quote-form" className="rounded-full bg-gold-500 px-6 py-3 font-semibold text-wine-900 hover:bg-white">
+                Request a quote
               </Link>
               <a
-                href={whatsappHref(`Hi ${hotel.shortName}, I'd like a conference quote for [number] people on [date].`)}
+                href={whatsappHref(`Hello ${hotel.shortName}, I would like a quotation for a conference for [number] delegates on [date]. Please share your available packages, catering options and accommodation rates.`)}
                 target="_blank"
                 rel="noopener"
                 data-track="whatsapp"
