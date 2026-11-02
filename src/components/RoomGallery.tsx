@@ -7,11 +7,13 @@ import type { Photo } from "@/data/photos";
 type Props = {
   photos: Photo[];
   badge?: string;
+  // Load the first photo early when the gallery is at the top of the page.
+  priority?: boolean;
 };
 
 // Large main photo with a thumbnail strip underneath. Tap a thumbnail, use
 // the arrows, or swipe the main photo on a phone.
-export function RoomGallery({ photos, badge }: Props) {
+export function RoomGallery({ photos, badge, priority = true }: Props) {
   const [active, setActive] = useState(0);
   const touchX = useRef<number | null>(null);
   const current = photos[active];
@@ -42,8 +44,8 @@ export function RoomGallery({ photos, badge }: Props) {
             fill
             sizes="(min-width: 1024px) 60vw, 100vw"
             placeholder="blur"
-            loading={i === 0 ? "eager" : "lazy"}
-            fetchPriority={i === 0 ? "high" : undefined}
+            loading={priority && i === 0 ? "eager" : "lazy"}
+            fetchPriority={priority && i === 0 ? "high" : undefined}
             aria-hidden={i !== active}
             className={`object-cover transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
           />

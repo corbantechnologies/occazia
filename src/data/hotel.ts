@@ -12,7 +12,7 @@ export const hotel = {
   locale: "en_KE",
 
   contact: {
-    // TODO: hotel to confirm. The profile footer shows 0798 622588.
+    // Main line confirmed by the hotel (2 Nov 2026).
     phone: "+254793622588",
     phoneDisplay: "+254 793 622 588",
     whatsapp: "254110287734",
@@ -64,6 +64,7 @@ export const hotel = {
     "Baggage storage",
     "Express check-in and check-out",
     "Conference halls",
+    "Rooftop terrace with lake views",
     "Smoke-free rooms",
   ],
 

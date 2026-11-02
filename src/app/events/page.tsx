@@ -6,7 +6,8 @@ import { PageHero } from "@/components/PageHero";
 import { PhotoStrip } from "@/components/PhotoStrip";
 import { eventFacilities, eventPackages, halls } from "@/data/events";
 import { formatKsh, hotel } from "@/data/hotel";
-import { eventPhotos, photoSlots } from "@/data/photos";
+import { eventPhotos, hallPhotos, photoSlots } from "@/data/photos";
+import { RoomGallery } from "@/components/RoomGallery";
 import { rooms } from "@/data/rooms";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, venueSchema } from "@/lib/schema";
@@ -42,17 +43,30 @@ export default function EventsPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-14" aria-labelledby="halls-heading">
         <h2 id="halls-heading" className="font-display text-3xl font-semibold text-wine-900">Our halls</h2>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-3">
+        <ul className="mt-8 space-y-12">
           {halls.map((hall) => (
-            <li key={hall.id} className="rounded-2xl bg-white p-6 ring-1 ring-wine-900/5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">{hall.name}</p>
-              <p className="mt-2 font-display text-4xl font-semibold text-wine-900">{hall.capacity}</p>
-              <p className="text-sm text-ink/70">guests</p>
+            <li key={hall.id} className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+              <RoomGallery photos={hallPhotos[hall.id] ?? []} badge={`Up to ${hall.capacity} guests`} priority={false} />
+              <div className="rounded-2xl bg-white p-6 ring-1 ring-wine-900/5">
+                <p className="text-xs font-semibold uppercase tracking-widest text-gold-600">{hall.name}</p>
+                <p className="mt-2 font-display text-5xl font-semibold text-wine-900">{hall.capacity}</p>
+                <p className="text-sm text-ink/70">guests</p>
+                <p className="mt-4 text-ink/80">{hall.bestFor}.</p>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-ink/70">Layouts</p>
+                <ul className="mt-2 flex flex-wrap gap-2">
+                  {hall.layouts.map((layout) => (
+                    <li key={layout} className="rounded-full bg-wine-50 px-3 py-1 text-sm text-wine-800">{layout}</li>
+                  ))}
+                </ul>
+                <a href="#quote-form" className="mt-6 block rounded-full bg-wine-700 px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-wine-800">
+                  Request a quote
+                </a>
+              </div>
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-sm text-ink/70">
-          Halls can be set up classroom, U-shape or banquet style. Tell us your numbers and we&apos;ll suggest the right hall.
+        <p className="mt-8 text-sm text-ink/70">
+          Not sure which hall fits? Tell us your numbers and we&apos;ll suggest the right one.
         </p>
         <div className="mt-8">
           <PhotoStrip photos={eventPhotos} label="Conference and event photos" />

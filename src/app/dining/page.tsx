@@ -6,7 +6,8 @@ import { PageHero } from "@/components/PageHero";
 import { PhotoStrip } from "@/components/PhotoStrip";
 import { loungeHighlights, restaurantHighlights } from "@/data/dining";
 import { hotel } from "@/data/hotel";
-import { diningPhotos, loungePhotos, photoSlots } from "@/data/photos";
+import { diningPhotos, loungePhotos, photoSlots, rooftopPhotos } from "@/data/photos";
+import { Photo } from "@/components/Photo";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, restaurantSchema } from "@/lib/schema";
 
@@ -71,6 +72,25 @@ export default function DiningPage() {
           <div className="mt-8">
             <PhotoStrip photos={loungePhotos} label="Bar and lounge photos" />
           </div>
+        </div>
+      </section>
+
+      <section id="rooftop" className="scroll-mt-16" aria-labelledby="rooftop-heading">
+        <div className="relative isolate flex min-h-[60svh] items-end overflow-hidden">
+          <Photo photo={photoSlots.hero} label="Rooftop terrace at sunset" sizes="100vw" className="-z-10" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-wine-900/90 via-wine-900/30 to-transparent" />
+          <div className="mx-auto w-full max-w-6xl px-4 pb-10 pt-24 text-white">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-500">Rooftop terrace</p>
+            <h2 id="rooftop-heading" className="mt-2 max-w-2xl font-display text-4xl font-semibold leading-tight">
+              Sundowners above Homa Bay
+            </h2>
+            <p className="mt-3 max-w-xl text-lg text-sand-100">
+              Open-air tables under umbrellas, with views across the town to Lake Victoria and the hills. Come up for the sunset.
+            </p>
+          </div>
+        </div>
+        <div className="mx-auto max-w-6xl px-4 py-10">
+          <PhotoStrip photos={rooftopPhotos} label="Rooftop terrace photos" />
         </div>
       </section>
 

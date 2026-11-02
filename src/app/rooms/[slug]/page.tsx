@@ -83,14 +83,14 @@ export default async function RoomPage(props: PageProps<"/rooms/[slug]">) {
             </h2>
             <dl className="mt-4 grid grid-cols-2 gap-4">
               {specs.map(({ icon: SpecIcon, term, detail }) => (
-                <div key={term} className="flex gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-sand-100 text-wine-700">
-                    <SpecIcon />
-                  </span>
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-widest text-ink/70">{term}</dt>
-                    <dd className="text-sm font-semibold text-wine-900">{detail}</dd>
-                  </div>
+                <div key={term} className="grid grid-cols-[2.5rem_minmax(0,1fr)] content-start gap-x-3">
+                  <dt className="contents">
+                    <span className="row-span-2 flex h-10 w-10 items-center justify-center rounded-lg bg-sand-100 text-wine-700">
+                      <SpecIcon />
+                    </span>
+                    <span className="text-xs font-semibold uppercase tracking-widest text-ink/70">{term}</span>
+                  </dt>
+                  <dd className="col-start-2 text-sm font-semibold text-wine-900">{detail}</dd>
                 </div>
               ))}
             </dl>

@@ -12,14 +12,14 @@ export const metadata = pageMetadata({
   title: "Things to Do in Homa Bay",
   description: `Explore Homa Bay from ${hotel.name}: Lake Victoria boat rides, Ruma National Park, Simbi Nyaima crater lake, Homa Hill, and Rusinga and Mfangano islands.`,
   path: "/explore",
-  photo: photoSlots.hero,
+  photo: photoSlots.explore,
 });
 
 export default function ExplorePage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema([["Explore Homa Bay", "/explore"]])} />
-      <PageHero eyebrow="Explore Homa Bay" title="Things to do in Homa Bay" photo={photoSlots.hero}>
+      <PageHero eyebrow="Explore Homa Bay" title="Things to do in Homa Bay" photo={photoSlots.explore}>
         Lake Victoria, a national park with Kenya&apos;s rarest antelope, crater lakes and island trips, all within easy
         reach of the hotel.
       </PageHero>

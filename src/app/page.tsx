@@ -19,16 +19,17 @@ export const metadata: Metadata = {
 const maxHall = Math.max(...halls.map((h) => h.capacity));
 
 const heroSlides: HeroSlide[] = [
-  { photo: heroPhotos.hotel, label: "Find us in Homa Bay", href: "/location" },
+  { photo: heroPhotos.rooftop, label: "Sunsets over Lake Victoria from our rooftop terrace", href: "/dining#rooftop" },
   { photo: heroPhotos.room, label: `Rooms from ${formatKsh(hotel.priceFrom)} with breakfast`, href: "/rooms" },
   { photo: heroPhotos.conference, label: `Conference halls for up to ${maxHall}`, href: "/events" },
-  { photo: heroPhotos.dining, label: "Restaurant, bar and lounge", href: "/dining" },
+  { photo: heroPhotos.hotel, label: "Find us in Homa Bay", href: "/location" },
 ];
 
 const trustSignals = [
   "Breakfast included",
   "Free Wi-Fi",
   "Balcony in every room",
+  "Rooftop terrace",
   `Halls for up to ${maxHall}`,
   "24-hour front desk",
   "Secure parking",
@@ -40,7 +41,7 @@ export default function Home() {
   return (
     <>
       <section className="relative isolate flex min-h-[82svh] items-end overflow-hidden">
-        <HeroCarousel slides={heroSlides} />
+        <HeroCarousel slides={heroSlides} video="/video/hotel-hero" />
         <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-32 text-white">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-500">Homa Bay · Lake Victoria</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">

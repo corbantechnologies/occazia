@@ -14,19 +14,38 @@ export type HeroSlide = {
 type Props = {
   slides: HeroSlide[];
   interval?: number;
+  // Optional muted background video for larger screens. It loads only after the
+  // page is up, and never with reduced motion or data saver, so the first photo
+  // stays the LCP.
+  // Pass the path without extension; .webm and .mp4 versions must both exist.
+  video?: string;
 };
 
 // Cross-fading background photos with a slow zoom. Pauses on hover and focus,
 // and stays on the first photo for visitors who prefer reduced motion.
-export function HeroCarousel({ slides, interval = 6000 }: Props) {
+export function HeroCarousel({ slides, interval = 6000, video }: Props) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [withVideo, setWithVideo] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    // Desktop only: on phones the photo carousel is lighter on data and battery.
+    const wanted = window.matchMedia("(min-width: 768px) and (prefers-reduced-motion: no-preference)").matches;
+    if (!video || !wanted || connection?.saveData) return;
+    // Wait for the page to finish loading so the video never competes with the hero photo.
+    const start = () => setWithVideo(true);
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+    return () => window.removeEventListener("load", start);
+  }, [video]);
+
+  useEffect(() => {
+    if (paused || playing || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(() => setActive((i) => (i + 1) % slides.length), interval);
     return () => window.clearInterval(id);
-  }, [paused, interval, slides.length]);
+  }, [paused, playing, interval, slides.length]);
 
   const current = slides[active];
 
@@ -56,9 +75,23 @@ export function HeroCarousel({ slides, interval = 6000 }: Props) {
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-gradient-to-t from-wine-900/90 via-wine-900/40 to-wine-900/10" />
+      {video && withVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden
+          onPlaying={() => setPlaying(true)}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${playing ? "opacity-100" : "opacity-0"}`}
+        >
+          <source src={`${video}.webm`} type="video/webm" />
+          <source src={`${video}.mp4`} type="video/mp4" />
+        </video>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-wine-900/90 via-wine-900/55 to-wine-900/25" />
 
-      <div className="absolute inset-x-0 bottom-0 z-10">
+      <div className={`absolute inset-x-0 bottom-0 z-10 ${playing ? "hidden" : ""}`}>
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 pb-5">
           <Link href={current.href} className="hidden text-sm font-semibold text-sand-100 underline-offset-4 hover:underline sm:block">
             {current.label} →
