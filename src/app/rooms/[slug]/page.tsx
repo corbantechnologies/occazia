@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { ContactButtons } from "@/components/ContactButtons";
 import { ArrowLeftIcon, ArrowRightIcon, BedIcon, CheckIcon, DoorIcon, GuestsIcon, ViewIcon } from "@/components/icons";
 import { JsonLd } from "@/components/JsonLd";
@@ -29,8 +30,39 @@ export async function generateMetadata(props: PageProps<"/rooms/[slug]">) {
   });
 }
 
-export default async function RoomPage(props: PageProps<"/rooms/[slug]">) {
-  const { slug } = await props.params;
+// The App Shell is shared by every room, so the slug is read inside Suspense
+// (Next 16 instant navigation). The three known rooms are still prerendered in
+// full by generateStaticParams; the skeleton only shows during a client
+// navigation before the room's content arrives.
+export default function RoomPage(props: PageProps<"/rooms/[slug]">) {
+  return (
+    <Suspense fallback={<RoomSkeleton />}>
+      <RoomDetails params={props.params} />
+    </Suspense>
+  );
+}
+
+function RoomSkeleton() {
+  return (
+    <div aria-busy="true" aria-label="Loading room">
+      <section className="mx-auto max-w-6xl px-4 pt-8">
+        <Link href="/rooms" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-wine-900 hover:text-wine-700">
+          <ArrowLeftIcon className="h-4 w-4" /> All rooms
+        </Link>
+        <div className="mt-6 h-4 w-64 animate-pulse rounded bg-wine-100" />
+        <div className="mt-3 h-11 w-80 max-w-full animate-pulse rounded bg-wine-100" />
+        <div className="mt-3 h-5 w-full max-w-xl animate-pulse rounded bg-wine-100" />
+      </section>
+      <section className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] gap-10 px-4 py-10 lg:grid-cols-[minmax(0,1fr)_23rem]">
+        <div className="aspect-[3/2] animate-pulse rounded-2xl bg-wine-100" />
+        <div className="h-96 animate-pulse rounded-2xl bg-white ring-1 ring-wine-900/5" />
+      </section>
+    </div>
+  );
+}
+
+async function RoomDetails({ params }: { params: PageProps<"/rooms/[slug]">["params"] }) {
+  const { slug } = await params;
   const room = getRoom(slug);
   if (!room) notFound();
 
