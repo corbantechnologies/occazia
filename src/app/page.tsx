@@ -18,11 +18,18 @@ export const metadata: Metadata = {
 
 const maxHall = Math.max(...halls.map((h) => h.capacity));
 
+// Home hero slides, first slide first (it is also the LCP image).
 const heroSlides: HeroSlide[] = [
-  { photo: heroPhotos.rooftop, label: "Sunsets over Lake Victoria from our rooftop terrace", href: "/dining#rooftop" },
-  { photo: heroPhotos.room, label: `Rooms from ${formatKsh(hotel.priceFrom)} with breakfast`, href: "/rooms" },
+  { photo: heroPhotos.rooftopLake, label: "Lake views from our rooftop terrace", href: "/dining#rooftop" },
+  { photo: heroPhotos.reception, label: "24-hour front desk in Homa Bay", href: "/location" },
   { photo: heroPhotos.conference, label: `Conference halls for up to ${maxHall}`, href: "/events" },
-  { photo: heroPhotos.hotel, label: "Find us in Homa Bay", href: "/location" },
+  { photo: heroPhotos.food, label: "Dine at our restaurant", href: "/dining" },
+  { photo: heroPhotos.rooftopHill, label: "Sunny days on the rooftop", href: "/dining#rooftop" },
+  { photo: heroPhotos.banquet, label: "Banquets and event lunches", href: "/events" },
+  { photo: heroPhotos.lounge, label: "Relax in the lounge", href: "/dining" },
+  { photo: heroPhotos.rooftopPlants, label: "Open-air rooftop terrace", href: "/dining#rooftop" },
+  { photo: heroPhotos.bar, label: "Drinks at the hotel bar", href: "/dining" },
+  { photo: heroPhotos.drinks, label: "Cold drinks at the bar", href: "/dining" },
 ];
 
 const trustSignals = [
@@ -41,7 +48,7 @@ export default function Home() {
   return (
     <>
       <section className="relative isolate flex min-h-[82svh] items-end overflow-hidden">
-        <HeroCarousel slides={heroSlides} video="/video/hotel-hero" />
+        <HeroCarousel slides={heroSlides} />
         <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-32 text-white">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-500">Homa Bay · Lake Victoria</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">
