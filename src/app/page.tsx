@@ -49,7 +49,9 @@ export default function Home() {
     <>
       <section className="relative isolate flex min-h-[82svh] items-end overflow-hidden">
         <HeroCarousel slides={heroSlides} />
-        <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-32 text-white">
+        {/* Clicks pass through the text to the carousel controls behind it; the
+            booking bar and quote link take them back. */}
+        <div className="pointer-events-none mx-auto w-full max-w-6xl px-4 pb-20 pt-32 text-white">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-500">Homa Bay · Lake Victoria</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">
             Stay, meet and unwind at Hotel Occazia Homa Bay
@@ -59,10 +61,10 @@ export default function Home() {
             <strong className="text-white">{formatKsh(hotel.priceFrom)}</strong>, conference halls for up to {maxHall}, and
             warm hospitality near Lake Victoria.
           </p>
-          <div className="mt-8 max-w-4xl">
+          <div className="pointer-events-auto mt-8 max-w-4xl">
             <AvailabilityBar />
           </div>
-          <p className="mt-4 text-sm text-sand-100">
+          <p className="pointer-events-auto mt-4 w-fit text-sm text-sand-100">
             Planning a conference or event?{" "}
             <Link href="/events#quote-form" className="font-semibold text-white underline underline-offset-4">
               Request a quote

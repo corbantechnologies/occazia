@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Photo } from "@/data/photos";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons";
 
 export type HeroSlide = {
   photo: Photo;
@@ -17,48 +18,74 @@ type Props = {
   interval?: number;
 };
 
-// Cross-fading background photos with a slow zoom (Ken Burns). The first photo
-// is preloaded as the LCP image; each later photo is only added to the page
-// shortly before its turn, so the carousel doesn't download every slide up
-// front. Pauses on hover and focus, and stays on the first photo (no zoom) for
-// visitors who prefer reduced motion.
-export function HeroCarousel({ slides, interval = 5000 }: Props) {
+// How many slides after the current one to load in advance, so a short
+// interval never shows a slide that is still downloading.
+const LOOK_AHEAD = 2;
+
+const arrowClass =
+  "flex items-center justify-center rounded-full bg-wine-900/55 text-white ring-1 ring-white/30 backdrop-blur-sm transition hover:bg-wine-900/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500";
+
+// Cross-fading background photos with a slow zoom (Ken Burns), with previous /
+// next arrows, dots, swipe and left/right arrow keys. The first photo is
+// preloaded as the LCP image; later photos are added to the page a couple of
+// slides before their turn. Any manual change restarts the timer. Autoplay
+// pauses while a control is hovered or focused, and is off (no zoom either)
+// for visitors who prefer reduced motion; the arrows and dots still work.
+export function HeroCarousel({ slides, interval = 2000 }: Props) {
+  const count = slides.length;
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-  // Highest slide index allowed to load: the current one plus the next.
-  const [loadedUpTo, setLoadedUpTo] = useState(1);
+  const [loaded, setLoaded] = useState(() => slides.map((_, i) => i === 0));
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
-  useEffect(() => {
-    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = window.setInterval(() => setActive((i) => (i + 1) % slides.length), interval);
-    return () => window.clearInterval(id);
-  }, [paused, interval, slides.length]);
-
-  const current = slides[active];
-
-  function show(i: number) {
-    setActive(i);
-    setLoadedUpTo((n) => Math.max(n, i + 1));
+  // Keep the current slide and the next few mounted (adjusting state during
+  // render, React's recommended pattern for state derived from other state).
+  const wanted = Array.from({ length: LOOK_AHEAD + 1 }, (_, k) => (active + k) % count);
+  if (wanted.some((i) => !loaded[i])) {
+    setLoaded((prev) => prev.map((v, i) => v || wanted.includes(i)));
   }
 
-  // Keep the next slide one step ahead of the one on screen.
-  if (active + 1 > loadedUpTo) setLoadedUpTo(active + 1);
+  // A timeout keyed on `active` restarts whenever the slide changes, so a
+  // click on an arrow or dot gets the full interval before the next change.
+  useEffect(() => {
+    if (paused || count < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setTimeout(() => setActive((i) => (i + 1) % count), interval);
+    return () => window.clearTimeout(id);
+  }, [active, paused, interval, count]);
+
+  const go = (i: number) => setActive(((i % count) + count) % count);
+  const current = slides[active];
+  const pauseProps = {
+    onMouseEnter: () => setPaused(true),
+    onMouseLeave: () => setPaused(false),
+    onFocus: () => setPaused(true),
+    onBlur: () => setPaused(false),
+  };
 
   return (
     <div
       className="absolute inset-0 -z-10"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowLeft") go(active - 1);
+        else if (e.key === "ArrowRight") go(active + 1);
+      }}
+      onTouchStart={(e) => (touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY })}
+      onTouchEnd={(e) => {
+        const start = touchStart.current;
+        touchStart.current = null;
+        if (!start) return;
+        const dx = e.changedTouches[0].clientX - start.x;
+        const dy = e.changedTouches[0].clientY - start.y;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(active + (dx < 0 ? 1 : -1));
+      }}
     >
       {slides.map((slide, i) => (
         <div
           key={slide.photo.src.src}
           aria-hidden={i !== active}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === active ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === active ? "opacity-100" : "opacity-0"}`}
         >
-          {i <= loadedUpTo && (
+          {loaded[i] && (
             <Image
               src={slide.photo.src}
               alt={slide.photo.alt}
@@ -67,8 +94,8 @@ export function HeroCarousel({ slides, interval = 5000 }: Props) {
               placeholder="blur"
               preload={i === 0}
               loading={i === 0 ? undefined : "lazy"}
-              className={`object-cover motion-safe:transition-transform motion-safe:duration-[6000ms] motion-safe:ease-linear ${
-                i === active ? "motion-safe:scale-110" : "scale-100"
+              className={`object-cover motion-safe:transition-transform motion-safe:duration-[2700ms] motion-safe:ease-linear ${
+                i === active ? "motion-safe:scale-105" : "scale-100"
               }`}
             />
           )}
@@ -76,25 +103,63 @@ export function HeroCarousel({ slides, interval = 5000 }: Props) {
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-wine-900/90 via-wine-900/55 to-wine-900/25" />
 
-      <div className="absolute inset-x-0 bottom-0 z-10">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 pb-5">
-          <Link href={current.href} className="hidden text-sm font-semibold text-sand-100 underline-offset-4 hover:underline sm:block">
+      {count > 1 && (
+        <>
+          {/* Side arrows on wide screens, where the hero text leaves the edges clear. */}
+          <button
+            type="button"
+            onClick={() => go(active - 1)}
+            aria-label="Previous photo"
+            className={`${arrowClass} absolute left-4 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 xl:flex`}
+            {...pauseProps}
+          >
+            <ChevronLeftIcon className="h-6 w-6" />
+          </button>
+          <button
+            type="button"
+            onClick={() => go(active + 1)}
+            aria-label="Next photo"
+            className={`${arrowClass} absolute right-4 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 xl:flex`}
+            {...pauseProps}
+          >
+            <ChevronRightIcon className="h-6 w-6" />
+          </button>
+        </>
+      )}
+
+      {/* Phones: controls go at the top of the photo, above the headline, because
+          the fixed Call / WhatsApp / Book bar covers the bottom of the hero.
+          Wider screens: bottom row, with the current slide's link. */}
+      <div className="absolute inset-x-0 top-3 z-10 md:top-auto md:bottom-0">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 md:pb-5">
+          <Link href={current.href} className="hidden text-sm font-semibold text-sand-100 underline-offset-4 hover:underline md:block">
             {current.label} →
           </Link>
-          <div className="ml-auto flex" role="group" aria-label="Choose photo">
-            {slides.map((slide, i) => (
-              <button
-                key={slide.photo.src.src}
-                type="button"
-                onClick={() => show(i)}
-                aria-label={`Show photo ${i + 1}: ${slide.label}`}
-                aria-current={i === active}
-                className="flex h-11 w-7 items-center justify-center"
-              >
-                <span className={`h-1.5 rounded-full transition-all ${i === active ? "w-6 bg-gold-500" : "w-2.5 bg-white/60"}`} />
+          {count > 1 && (
+            <div className="mx-auto flex items-center gap-1 md:mr-0" {...pauseProps}>
+              {/* Below xl the arrows sit beside the dots, clear of the text. */}
+              <button type="button" onClick={() => go(active - 1)} aria-label="Previous photo" className={`${arrowClass} h-11 w-11 xl:hidden`}>
+                <ChevronLeftIcon className="h-5 w-5" />
               </button>
-            ))}
-          </div>
+              <div className="flex" role="group" aria-label="Choose photo">
+                {slides.map((slide, i) => (
+                  <button
+                    key={slide.photo.src.src}
+                    type="button"
+                    onClick={() => go(i)}
+                    aria-label={`Show photo ${i + 1}: ${slide.label}`}
+                    aria-current={i === active}
+                    className="flex h-11 w-5 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 lg:w-7"
+                  >
+                    <span className={`h-1.5 rounded-full transition-all ${i === active ? "w-4 bg-gold-500 lg:w-6" : "w-1.5 bg-white/60 lg:w-2.5"}`} />
+                  </button>
+                ))}
+              </div>
+              <button type="button" onClick={() => go(active + 1)} aria-label="Next photo" className={`${arrowClass} h-11 w-11 xl:hidden`}>
+                <ChevronRightIcon className="h-5 w-5" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
