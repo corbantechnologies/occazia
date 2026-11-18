@@ -40,8 +40,6 @@ import hall2ClassroomImg from "../../public/images/events/hall-2/classroom.jpg";
 import hall2TablesImg from "../../public/images/events/hall-2/tables.jpg";
 import hall2BanquetImg from "../../public/images/events/hall-2/banquet.jpg";
 import hall3BanquetImg from "../../public/images/events/hall-3/banquet.jpg";
-import hall3RoundTablesImg from "../../public/images/events/hall-3/round-tables.jpg";
-import hall3MeetingImg from "../../public/images/events/hall-3/meeting.jpg";
 import hall3UShapeImg from "../../public/images/events/hall-3/u-shape.jpg";
 import hall3SkirtedUShapeImg from "../../public/images/events/hall-3/u-shape-skirted.jpg";
 import hall3HollowSquareImg from "../../public/images/events/hall-3/hollow-square.jpg";
@@ -51,11 +49,8 @@ import banquetRoundTablesImg from "../../public/images/events/banquet/round-tabl
 import banquetTableForSixImg from "../../public/images/events/banquet/table-for-six.jpg";
 import barCounterGrilleImg from "../../public/images/lounge/bar/counter.jpg";
 import barShelvesImg from "../../public/images/lounge/bar/shelves.jpg";
-import barWhiskyImg from "../../public/images/lounge/bar/spirits.jpg";
 import barSoftDrinksImg from "../../public/images/lounge/bar/soft-drinks.jpg";
 import bartenderImg from "../../public/images/lounge/bartender.jpg";
-import barSpiritsImg from "../../public/images/lounge/bar-spirits.jpg";
-import rooftopTerraceImg from "../../public/images/rooftop/terrace.jpg";
 import rooftopSignImg from "../../public/images/rooftop/terrace-sign.jpg";
 import rooftopUmbrellasImg from "../../public/images/rooftop/terrace-umbrellas.jpg";
 import rooftopDuskImg from "../../public/images/rooftop/terrace-dusk.jpg";
@@ -65,7 +60,6 @@ import rooftopLakeViewImg from "../../public/images/rooftop/lake-view.jpg";
 import conferenceHallScreenImg from "../../public/images/events/conference-hall-screen.jpg";
 import conferenceTableSettingImg from "../../public/images/events/conference-table-setting.jpg";
 import conferenceProjectorImg from "../../public/images/events/conference-projector.jpg";
-import banquetHallImg from "../../public/images/events/banquet-hall.jpg";
 import eventBuffetImg from "../../public/images/events/event-buffet.jpg";
 import restaurantImg from "../../public/images/dining/restaurant.jpg";
 import restaurantDiningRoomImg from "../../public/images/dining/restaurant-dining-room.jpg";
@@ -76,8 +70,6 @@ import chefImg from "../../public/images/dining/chef.jpg";
 import kitchenPrepImg from "../../public/images/dining/kitchen-prep.jpg";
 import restaurantTeamImg from "../../public/images/dining/restaurant-team.jpg";
 import barImg from "../../public/images/lounge/bar.jpg";
-import barServiceImg from "../../public/images/lounge/bar-service.jpg";
-import barCounterImg from "../../public/images/lounge/bar-counter.jpg";
 import loungeSeatingImg from "../../public/images/lounge/lounge-seating.jpg";
 import loungeBalconyImg from "../../public/images/lounge/lounge-balcony.jpg";
 import terraceTablesImg from "../../public/images/lounge/terrace-tables.jpg";
@@ -97,9 +89,9 @@ export type Photo = {
 export type PhotoCategory = "rooftop" | "rooms" | "events" | "dining" | "lounge" | "exterior";
 
 export const photoCategories: { id: PhotoCategory; label: string }[] = [
-  { id: "rooftop", label: "Rooftop" },
   { id: "rooms", label: "Rooms" },
   { id: "events", label: "Conferences" },
+  { id: "rooftop", label: "Rooftop" },
   { id: "dining", label: "Dining" },
   { id: "lounge", label: "Bar & lounge" },
   { id: "exterior", label: "Hotel" },
@@ -112,7 +104,6 @@ const photos = {
   rooftopUmbrellas: { src: rooftopUmbrellasImg, alt: "Tables, chairs and potted palms on the rooftop terrace", category: "rooftop" },
   rooftopLakeView: { src: rooftopLakeViewImg, alt: "Rooftop table looking out over Homa Bay towards the lake at dusk", category: "rooftop" },
   rooftopDusk: { src: rooftopDuskImg, alt: "Rooftop terrace seating at dusk with the hills beyond", category: "rooftop" },
-  rooftopTerrace: { src: rooftopTerraceImg, alt: "Open-air rooftop terrace with umbrellas and potted plants", category: "rooftop" },
   hotelFront: { src: hotelFrontImg, alt: "Hotel Occazia Homa Bay building and main entrance under a clear blue sky", category: "exterior" },
   mainEntrance: { src: mainEntranceImg, alt: "Main entrance of Hotel Occazia Homa Bay with its sign and potted plants", category: "exterior" },
   buildingView: { src: buildingViewImg, alt: "The Hotel Occazia building in Homa Bay with balconies on every floor", category: "exterior" },
@@ -158,13 +149,10 @@ const photos = {
   hall3WindowSide: { src: hall3WindowSideImg, alt: "Hall 3 U-shape tables beside bright windows", category: "events" },
   hall3LongTables: { src: hall3LongTablesImg, alt: "Long skirted tables and blue chairs along the side of Hall 3", category: "events" },
   hall3Banquet: { src: hall3BanquetImg, alt: "Hall 3 with round tables in red cloths and blue banquet chairs", category: "events" },
-  hall3RoundTables: { src: hall3RoundTablesImg, alt: "Round banquet tables in Hall 3", category: "events" },
-  hall3Meeting: { src: hall3MeetingImg, alt: "Hall 3 laid out with wooden tables for a workshop", category: "events" },
   hall3UShape: { src: hall3UShapeImg, alt: "Hall 3 with wooden tables in a U-shape and red chairs", category: "events" },
   conferenceHallScreen: { src: conferenceHallScreenImg, alt: "Delegate tables facing a projector screen and flip chart", category: "events" },
   conferenceTableSetting: { src: conferenceTableSettingImg, alt: "Conference table set with notepads, pens and bottled water", category: "events" },
   conferenceProjector: { src: conferenceProjectorImg, alt: "Projector set up on a delegate table", category: "events" },
-  banquetHall: { src: banquetHallImg, alt: "Hall 3 arranged for a banquet with round tables", category: "events" },
   banquetRoundTables: { src: banquetRoundTablesImg, alt: "Conference hall set banquet-style with round tables in red cloths and red chairs", category: "events" },
   banquetTableForSix: { src: banquetTableForSixImg, alt: "Round banquet table in a red cloth with gold-framed red chairs", category: "events" },
   eventBuffet: { src: eventBuffetImg, alt: "Buffet station with chafing dishes and plates for event catering", category: "events" },
@@ -179,12 +167,8 @@ const photos = {
   bartender: { src: bartenderImg, alt: "Smiling bartender pouring a drink at the hotel bar", category: "lounge" },
   barCounterGrille: { src: barCounterGrilleImg, alt: "Hotel bar counter with stocked shelves and a drinks fridge behind a steel grille", category: "lounge" },
   barShelves: { src: barShelvesImg, alt: "Wine and whisky bottles on the bar counter in front of shelves of spirits", category: "lounge" },
-  barWhisky: { src: barWhiskyImg, alt: "Bottles of wine and whisky on the bar counter", category: "lounge" },
   barSoftDrinks: { src: barSoftDrinksImg, alt: "Canned drinks lined up on the bar counter", category: "lounge" },
-  barSpirits: { src: barSpiritsImg, alt: "Spirits and liqueurs lined up on the bar counter", category: "lounge" },
   bar: { src: barImg, alt: "Bartender at the well-stocked hotel bar", category: "lounge" },
-  barService: { src: barServiceImg, alt: "Bartender pouring a drink at the bar", category: "lounge" },
-  barCounter: { src: barCounterImg, alt: "Spirits and a wine glass on the bar counter", category: "lounge" },
   loungeSeating: { src: loungeSeatingImg, alt: "Lounge with leather sofas and a marble coffee table", category: "lounge" },
   loungeBalcony: { src: loungeBalconyImg, alt: "Lounge seating beside open doors to the balcony", category: "lounge" },
   terraceTables: { src: terraceTablesImg, alt: "Bright upstairs lounge with high tables and large windows", category: "lounge" },
@@ -289,8 +273,88 @@ export const diningPhotos: Photo[] = [
 
 export const loungePhotos: Photo[] = [photos.bartender, photos.barCounterGrille, photos.loungeSeating, photos.barShelves];
 
-// Gallery photos, in display order within each category.
-export const gallery: (Photo & { category: PhotoCategory })[] = Object.values(photos);
+// Gallery page photos in display order: categories in the same order as the
+// filter tabs, best photo first in each. Near-duplicates of a photo already
+// listed (e.g. the shared Standard/Deluxe bathroom) are left out on purpose.
+// A photo added to `photos` above only shows here once it is added below.
+export const gallery: (Photo & { category: PhotoCategory })[] = [
+  // Rooms (Nov 2026 shoot)
+  photos.executiveRoomSeating,
+  photos.deluxeRoomWide,
+  photos.standardBedWindow,
+  photos.executiveBedTowelArt,
+  photos.deluxeBed,
+  photos.standardBedNet,
+  photos.executiveLoungeDesk,
+  photos.deluxeSeatingArea,
+  photos.standardDeskArmchair,
+  photos.executiveBalconyView,
+  photos.standardBalcony,
+  photos.deluxeBedTowelSwan,
+  photos.standardBedClose,
+  photos.executiveBedWindow,
+  photos.executiveDeskWardrobe,
+  photos.deluxeDeskWardrobe,
+  photos.standardDeskWardrobe,
+  photos.standardDeskMirror,
+  photos.deluxeMirror,
+  photos.executiveTeaTray,
+  photos.executiveBathroomShower,
+  photos.executiveBathroomBasin,
+  photos.standardBathroomShower,
+  photos.standardBathroomBasin,
+  // Conferences: one of each hall first, then the other layouts
+  photos.hall1Screen,
+  photos.hall2Classroom,
+  photos.hall3SkirtedUShape,
+  photos.banquetRoundTables,
+  photos.hall1Wide,
+  photos.hall2Screen,
+  photos.hall3HollowSquare,
+  photos.hall2Banquet,
+  photos.hall3Banquet,
+  photos.hall3WindowSide,
+  photos.banquetTableForSix,
+  photos.hall1Rows,
+  photos.hall2Tables,
+  photos.hall3UShape,
+  photos.hall3LongTables,
+  photos.hall1Tables,
+  photos.conferenceTableSetting,
+  photos.conferenceProjector,
+  photos.eventBuffet,
+  // Rooftop
+  photos.rooftopSunsetLake,
+  photos.rooftopSunset,
+  photos.rooftopLakeView,
+  photos.rooftopSign,
+  photos.rooftopDusk,
+  photos.rooftopUmbrellas,
+  // Dining
+  photos.restaurant,
+  photos.restaurantWindowTables,
+  photos.restaurantTableSetting,
+  photos.tableForTwo,
+  photos.chef,
+  photos.kitchenPrep,
+  photos.restaurantTeam,
+  // Bar & lounge
+  photos.bartender,
+  photos.barCounterGrille,
+  photos.bar,
+  photos.barShelves,
+  photos.barSoftDrinks,
+  photos.loungeSeating,
+  photos.loungeBalcony,
+  photos.terraceTables,
+  // Hotel
+  photos.hotelFront,
+  photos.buildingView,
+  photos.mainEntrance,
+  photos.receptionEntrance,
+  photos.frontDesk,
+  photos.corridor,
+];
 
 // Home page "experience" row: people and atmosphere, not repeats of the section photos.
 export const experiencePhotos: Photo[] = [photos.rooftopSunset, photos.restaurantTeam, photos.chef];
