@@ -55,11 +55,6 @@ export function RoomGallery({ photos, badge, priority = true }: Props) {
             {badge}
           </span>
         )}
-        {current.caption && (
-          <span className="absolute bottom-4 left-4 rounded-full bg-wine-900/75 px-3 py-1 text-xs font-semibold text-white">
-            {current.caption}
-          </span>
-        )}
         <span className="absolute bottom-4 right-4 rounded-full bg-wine-900/75 px-3 py-1 text-xs font-semibold text-white">
           {active + 1} / {photos.length}
         </span>

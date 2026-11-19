@@ -66,7 +66,9 @@ export function roomSchema(room: Room) {
     description: room.summary,
     url,
     image: (roomPhotos[room.slug] ?? []).map(imageUrl),
-    bed: room.bed,
+    // Every room has one 5×6 ft bed, a queen in Kenyan sizing.
+    bed: { "@type": "BedDetails", numberOfBeds: 1, typeOfBed: "Queen" },
+    floorSize: { "@type": "QuantitativeValue", value: Number(room.size.match(/\d+/)?.[0]), unitCode: "MTK" },
     amenityFeature: room.features.map((name) => ({ "@type": "LocationFeatureSpecification", name, value: true })),
     smokingAllowed: false,
     containedInPlace: { "@id": ids.hotel },

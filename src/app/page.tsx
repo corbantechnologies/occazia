@@ -18,18 +18,19 @@ export const metadata: Metadata = {
 
 const maxHall = Math.max(...halls.map((h) => h.capacity));
 
-// Home hero slides, first slide first (it is also the LCP image).
+// Home hero slides, first slide first (it is also the LCP image). The labels
+// describe each photo for the dot buttons.
 const heroSlides: HeroSlide[] = [
-  { photo: heroPhotos.rooftopLake, label: "Lake views from our rooftop terrace", href: "/dining#rooftop" },
-  { photo: heroPhotos.reception, label: "24-hour front desk in Homa Bay", href: "/location" },
-  { photo: heroPhotos.conference, label: `Conference halls for up to ${maxHall}`, href: "/events" },
-  { photo: heroPhotos.food, label: "Dine at our restaurant", href: "/dining" },
-  { photo: heroPhotos.rooftopHill, label: "Sunny days on the rooftop", href: "/dining#rooftop" },
-  { photo: heroPhotos.banquet, label: "Banquets and event lunches", href: "/events" },
-  { photo: heroPhotos.lounge, label: "Relax in the lounge", href: "/dining" },
-  { photo: heroPhotos.rooftopPlants, label: "Open-air rooftop terrace", href: "/dining#rooftop" },
-  { photo: heroPhotos.bar, label: "Drinks at the hotel bar", href: "/dining" },
-  { photo: heroPhotos.drinks, label: "Cold drinks at the bar", href: "/dining" },
+  { photo: heroPhotos.rooftopLake, label: "Lake views from our rooftop terrace" },
+  { photo: heroPhotos.room, label: "Executive Room with its own seating lounge" },
+  { photo: heroPhotos.conference, label: `Conference halls for up to ${maxHall}` },
+  { photo: heroPhotos.reception, label: "24-hour front desk in Homa Bay" },
+  { photo: heroPhotos.food, label: "Fresh Lake Victoria tilapia at our restaurant" },
+  { photo: heroPhotos.rooftopHill, label: "Sunny days on the rooftop" },
+  { photo: heroPhotos.banquet, label: "Banquets and event lunches" },
+  { photo: heroPhotos.rooftopPlants, label: "Open-air rooftop terrace" },
+  { photo: heroPhotos.bar, label: "Drinks at the hotel bar" },
+  { photo: heroPhotos.drinks, label: "Cold drinks at the bar" },
 ];
 
 const trustSignals = [
@@ -47,11 +48,14 @@ const videoId = new URL(hotel.social.youtube).pathname.slice(1);
 export default function Home() {
   return (
     <>
-      <section className="relative isolate flex min-h-[82svh] items-end overflow-hidden">
+      {/* Phones: the photo carousel on top, the text underneath on dark red.
+          From md up: the text sits over the photos, in a frame sized close to
+          their 3:2 shape so little or nothing is cropped. */}
+      <section className="relative isolate flex flex-col overflow-hidden bg-wine-900 md:h-[min(78svh,60vw)] md:min-h-[560px] md:justify-end">
         <HeroCarousel slides={heroSlides} />
-        {/* Clicks pass through the text to the carousel controls behind it; the
-            booking bar and quote link take them back. */}
-        <div className="pointer-events-none mx-auto w-full max-w-6xl px-4 pb-20 pt-32 text-white">
+        {/* From md up the carousel controls sit under this block, so clicks on its
+            empty space pass through; the text itself stays selectable. */}
+        <div className="mx-auto w-full max-w-6xl px-4 py-8 text-white md:pointer-events-none md:pb-24 md:pt-24 md:[&>*]:pointer-events-auto">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gold-500">Homa Bay · Lake Victoria</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">
             Stay, meet and unwind at Hotel Occazia Homa Bay
@@ -61,15 +65,24 @@ export default function Home() {
             <strong className="text-white">{formatKsh(hotel.priceFrom)}</strong>, conference halls for up to {maxHall}, and
             warm hospitality near Lake Victoria.
           </p>
-          <div className="pointer-events-auto mt-8 max-w-4xl">
-            <AvailabilityBar />
-          </div>
-          <p className="pointer-events-auto mt-4 w-fit text-sm text-sand-100">
+        </div>
+      </section>
+
+      {/* Booking strip on the light background, between the hero and the trust strip. */}
+      <section aria-label="Check availability" className="mx-auto max-w-6xl px-4 pb-8 pt-8">
+        <div className="rounded-2xl ring-1 ring-wine-900/10">
+          <AvailabilityBar />
+        </div>
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-1 text-sm text-ink/80">
+          <p>
             Planning a conference or event?{" "}
-            <Link href="/events#quote-form" className="font-semibold text-white underline underline-offset-4">
+            <Link href="/events#quote-form" className="font-semibold text-wine-700 underline underline-offset-4">
               Request a quote
             </Link>
           </p>
+          <Link href="/rooms" className="font-semibold text-wine-700 underline-offset-4 hover:underline">
+            Compare rooms and rates →
+          </Link>
         </div>
       </section>
 

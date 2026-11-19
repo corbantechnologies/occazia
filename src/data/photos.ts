@@ -3,43 +3,21 @@ import hotelFrontImg from "../../public/images/exterior/hotel-front.jpg";
 import mainEntranceImg from "../../public/images/exterior/main-entrance.jpg";
 import buildingViewImg from "../../public/images/exterior/building-view.jpg";
 import receptionEntranceImg from "../../public/images/exterior/reception-entrance.jpg";
-import frontDeskImg from "../../public/images/exterior/front-desk.jpg";
 import corridorImg from "../../public/images/exterior/corridor.jpg";
 import standardBedNetDoorImg from "../../public/images/rooms/standard/bed-net-door.jpg";
-import standardBedHeadboardImg from "../../public/images/rooms/standard/bed-headboard.jpg";
-import standardRoomTvDeskImg from "../../public/images/rooms/standard/room-tv-desk.jpg";
 import standardRoomWardrobeImg from "../../public/images/rooms/standard/room-wardrobe.jpg";
-import standardWritingDeskImg from "../../public/images/rooms/standard/writing-desk.jpg";
 import standardEnSuiteImg from "../../public/images/rooms/standard/en-suite.jpg";
 import deluxeBedDoorImg from "../../public/images/rooms/deluxe/bed-door.jpg";
-import deluxeBedCushionImg from "../../public/images/rooms/deluxe/bed-cushion.jpg";
 import deluxeRoomWideWindowImg from "../../public/images/rooms/deluxe/room-wide-window.jpg";
-import deluxeDeskFanImg from "../../public/images/rooms/deluxe/desk-fan.jpg";
-import deluxeDeskTvWardrobeImg from "../../public/images/rooms/deluxe/desk-tv-wardrobe.jpg";
 import deluxeDeskGreyWardrobeImg from "../../public/images/rooms/deluxe/desk-grey-wardrobe.jpg";
 import deluxeBalconyChairImg from "../../public/images/rooms/deluxe/balcony-chair.jpg";
-import executive1SeatingBedImg from "../../public/images/rooms/executive/option-1/seating-bed.jpg";
-import executive1BedTowelArtImg from "../../public/images/rooms/executive/option-1/bed-towel-art.jpg";
-import executive1BedWindowImg from "../../public/images/rooms/executive/option-1/bed-window.jpg";
-import executive1ViewFromBedImg from "../../public/images/rooms/executive/option-1/view-from-bed.jpg";
-import executive1LoungeDeskImg from "../../public/images/rooms/executive/option-1/lounge-desk.jpg";
-import executive1SeatingDoorImg from "../../public/images/rooms/executive/option-1/seating-door.jpg";
-import executive1SeatingBedWideImg from "../../public/images/rooms/executive/option-1/seating-bed-wide.jpg";
-import executive1BedPillowsImg from "../../public/images/rooms/executive/option-1/bed-pillows.jpg";
-import executive1TeaTrayImg from "../../public/images/rooms/executive/option-1/tea-tray.jpg";
+import executiveSeatingBedImg from "../../public/images/rooms/executive/seating-bed.jpg";
+import executiveRoomWideImg from "../../public/images/rooms/executive/room-wide.jpg";
+import executiveBedTowelArtImg from "../../public/images/rooms/executive/bed-towel-art.jpg";
+import executiveViewFromBedImg from "../../public/images/rooms/executive/view-from-bed.jpg";
 import executiveBalconyHillViewImg from "../../public/images/rooms/executive/balcony-hill-view.jpg";
-import executive1RainShowerImg from "../../public/images/rooms/executive/option-1/rain-shower.jpg";
-import executive1EnSuiteImg from "../../public/images/rooms/executive/option-1/en-suite.jpg";
-import executive2RoomWideImg from "../../public/images/rooms/executive/option-2/room-wide.jpg";
-import executive2ArmchairBedImg from "../../public/images/rooms/executive/option-2/armchair-bed.jpg";
-import executive2BedImg from "../../public/images/rooms/executive/option-2/bed.jpg";
-import executive2BedTowelSwanImg from "../../public/images/rooms/executive/option-2/bed-towel-swan.jpg";
-import executive2SeatingDeskImg from "../../public/images/rooms/executive/option-2/seating-desk.jpg";
-import executive2BedWindowsImg from "../../public/images/rooms/executive/option-2/bed-windows.jpg";
-import executive2TeaTrayImg from "../../public/images/rooms/executive/option-2/tea-tray.jpg";
-import executive2WardrobeMirrorImg from "../../public/images/rooms/executive/option-2/wardrobe-mirror.jpg";
-import executive2MirrorImg from "../../public/images/rooms/executive/option-2/mirror.jpg";
-import executive2EnSuiteImg from "../../public/images/rooms/executive/option-2/en-suite.jpg";
+import executiveTeaTrayImg from "../../public/images/rooms/executive/tea-tray.jpg";
+import executiveRainShowerImg from "../../public/images/rooms/executive/rain-shower.jpg";
 import hall1ScreenImg from "../../public/images/events/hall-1/screen.jpg";
 import hall1WideImg from "../../public/images/events/hall-1/wide.jpg";
 import hall1RowsImg from "../../public/images/events/hall-1/rows.jpg";
@@ -67,7 +45,6 @@ import banquetTableForSixImg from "../../public/images/events/banquet/table-for-
 import barCounterGrilleImg from "../../public/images/lounge/bar/counter.jpg";
 import barShelvesImg from "../../public/images/lounge/bar/shelves.jpg";
 import barSoftDrinksImg from "../../public/images/lounge/bar/soft-drinks-wide.jpg";
-import bartenderImg from "../../public/images/lounge/bartender.jpg";
 import rooftopSignImg from "../../public/images/rooftop/terrace-sign.jpg";
 import rooftopUmbrellasImg from "../../public/images/rooftop/terrace-umbrellas.jpg";
 import rooftopDuskImg from "../../public/images/rooftop/terrace-dusk.jpg";
@@ -79,14 +56,13 @@ import conferenceTableSettingImg from "../../public/images/events/conference-tab
 import conferenceProjectorImg from "../../public/images/events/conference-projector.jpg";
 import eventBuffetImg from "../../public/images/events/event-buffet.jpg";
 import restaurantImg from "../../public/images/dining/restaurant.jpg";
+import restaurantTablesTvImg from "../../public/images/dining/restaurant-tables-tv.jpg";
+import receptionistPhoneImg from "../../public/images/exterior/receptionist-phone.jpg";
 import restaurantDiningRoomImg from "../../public/images/dining/restaurant-dining-room.jpg";
 import restaurantTableSettingImg from "../../public/images/dining/restaurant-table-setting.jpg";
 import restaurantWindowTablesImg from "../../public/images/dining/restaurant-window-tables.jpg";
 import tableForTwoImg from "../../public/images/dining/table-for-two.jpg";
 import chefImg from "../../public/images/dining/chef.jpg";
-import kitchenPrepImg from "../../public/images/dining/kitchen-prep.jpg";
-import restaurantTeamImg from "../../public/images/dining/restaurant-team.jpg";
-import barImg from "../../public/images/lounge/bar.jpg";
 import loungeSeatingImg from "../../public/images/lounge/lounge-seating.jpg";
 import loungeBalconyImg from "../../public/images/lounge/lounge-balcony.jpg";
 import terraceTablesImg from "../../public/images/lounge/terrace-tables.jpg";
@@ -102,8 +78,6 @@ import terraceTablesImg from "../../public/images/lounge/terrace-tables.jpg";
 export type Photo = {
   src: StaticImageData;
   alt: string;
-  // Short visible label, e.g. which Executive Room layout a photo shows.
-  caption?: string;
 };
 
 export type PhotoCategory = "rooftop" | "rooms" | "events" | "dining" | "lounge" | "exterior";
@@ -132,43 +106,21 @@ const photos = {
   mainEntrance: { src: mainEntranceImg, alt: "Main entrance of Hotel Occazia Homa Bay with its sign and potted plants", category: "exterior" },
   buildingView: { src: buildingViewImg, alt: "The Hotel Occazia building in Homa Bay with balconies on every floor", category: "exterior" },
   receptionEntrance: { src: receptionEntranceImg, alt: "Glass doors opening into the reception area", category: "exterior" },
-  frontDesk: { src: frontDeskImg, alt: "Receptionist on the phone at the front desk", category: "exterior" },
   corridor: { src: corridorImg, alt: "Bright corridor leading to the guest rooms", category: "exterior" },
-  standardBedNetDoor: { src: standardBedNetDoorImg, alt: "Standard Room double bed with a mosquito net, red curtains and a wooden door", category: "rooms" },
-  standardBedHeadboard: { src: standardBedHeadboardImg, alt: "Standard Room double bed with Hotel Occazia pillows, a red runner and bedside table", category: "rooms" },
-  standardRoomTvDesk: { src: standardRoomTvDeskImg, alt: "Standard Room writing desk, wall-mounted TV and wardrobe seen from the bed", category: "rooms" },
+  standardBedNetDoor: { src: standardBedNetDoorImg, alt: "Standard Room queen bed with a mosquito net, red curtains and a wooden door", category: "rooms" },
   standardRoomWardrobe: { src: standardRoomWardrobeImg, alt: "Standard Room wardrobe, mirror, wall-mounted TV and desk", category: "rooms" },
-  standardWritingDesk: { src: standardWritingDeskImg, alt: "Standard Room wooden writing desk with a chair and bottled water", category: "rooms" },
   standardEnSuite: { src: standardEnSuiteImg, alt: "Tiled en-suite bathroom with shower, toilet and washbasin", category: "rooms" },
-  deluxeBedDoor: { src: deluxeBedDoorImg, alt: "Deluxe Room double bed with a red cushion beside a bright window, red curtains and an armchair", category: "rooms" },
-  deluxeBedCushion: { src: deluxeBedCushionImg, alt: "Deluxe Room bed with a padded headboard, red cushion, mosquito net and wall light", category: "rooms" },
-  deluxeRoomWideWindow: { src: deluxeRoomWideWindowImg, alt: "Deluxe Room with a double bed, desk, armchair, standing fan and wall-mounted TV", category: "rooms" },
-  deluxeDeskFan: { src: deluxeDeskFanImg, alt: "Deluxe Room desk with a kettle, red armchair and standing fan", category: "rooms" },
-  deluxeDeskTvWardrobe: { src: deluxeDeskTvWardrobeImg, alt: "Deluxe Room desk, wall-mounted TV, mirror and wardrobe", category: "rooms" },
+  deluxeBedDoor: { src: deluxeBedDoorImg, alt: "Deluxe Room queen bed with a red cushion beside a bright window, red curtains and an armchair", category: "rooms" },
+  deluxeRoomWideWindow: { src: deluxeRoomWideWindowImg, alt: "Deluxe Room with a queen bed, desk, armchair, standing fan and wall-mounted TV", category: "rooms" },
   deluxeDeskGreyWardrobe: { src: deluxeDeskGreyWardrobeImg, alt: "Deluxe Room desk with a red armchair, wall-mounted TV, fan and wardrobe", category: "rooms" },
-  deluxeBalconyChair: { src: deluxeBalconyChairImg, alt: "Deluxe Room balcony with a chair, looking out onto trees", category: "rooms" },
-  executive1SeatingBed: { src: executive1SeatingBedImg, alt: "Executive Room (option 1) with two red armchairs and a round coffee table in front of the bed", caption: "Option 1", category: "rooms" },
-  executive1BedTowelArt: { src: executive1BedTowelArtImg, alt: "Executive Room (option 1) bed with Hotel Occazia pillows, a red cushion and folded towel art", caption: "Option 1", category: "rooms" },
-  executive1BedWindow: { src: executive1BedWindowImg, alt: "Executive Room (option 1) double bed beside a bright window with red curtains", caption: "Option 1", category: "rooms" },
-  executive1ViewFromBed: { src: executive1ViewFromBedImg, alt: "View from the bed in the Executive Room (option 1) to the armchairs, desk, TV and wardrobe", caption: "Option 1", category: "rooms" },
-  executive1LoungeDesk: { src: executive1LoungeDeskImg, alt: "Executive Room (option 1) armchairs and coffee table with flowers, with a desk and standing fan beyond", caption: "Option 1", category: "rooms" },
-  executive1SeatingDoor: { src: executive1SeatingDoorImg, alt: "Executive Room (option 1) armchairs and coffee table by the window, with the bed behind", caption: "Option 1", category: "rooms" },
-  executive1SeatingBedWide: { src: executive1SeatingBedWideImg, alt: "Executive Room (option 1) seating area and bed under a mosquito net", caption: "Option 1", category: "rooms" },
-  executive1BedPillows: { src: executive1BedPillowsImg, alt: "Close-up of the Executive Room (option 1) bed with branded pillows and towel art", caption: "Option 1", category: "rooms" },
-  executive1TeaTray: { src: executive1TeaTrayImg, alt: "Tea tray with kettle, cups, glasses and bottled water in the Executive Room (option 1)", caption: "Option 1", category: "rooms" },
+  deluxeBalconyChair: { src: deluxeBalconyChairImg, alt: "Private balcony with a chair, looking out onto trees", category: "rooms" },
+  executiveSeatingBed: { src: executiveSeatingBedImg, alt: "Executive Room with two red armchairs and a round coffee table in front of the bed", category: "rooms" },
+  executiveRoomWide: { src: executiveRoomWideImg, alt: "Executive Room with a red armchair and coffee table in front of a bed with a mosquito net, beside tall bright windows", category: "rooms" },
+  executiveBedTowelArt: { src: executiveBedTowelArtImg, alt: "Executive Room bed with Hotel Occazia pillows, a red cushion and folded towel art", category: "rooms" },
+  executiveViewFromBed: { src: executiveViewFromBedImg, alt: "View from the Executive Room bed to the armchairs, desk, TV and wardrobe", category: "rooms" },
   executiveBalconyHillView: { src: executiveBalconyHillViewImg, alt: "Executive Room balcony with two chairs and a small table overlooking a green hill", category: "rooms" },
-  executive1RainShower: { src: executive1RainShowerImg, alt: "Executive Room (option 1) en-suite with a rain shower and toilet", caption: "Option 1", category: "rooms" },
-  executive1EnSuite: { src: executive1EnSuiteImg, alt: "Executive Room (option 1) tiled en-suite with shower, toilet and washbasin", caption: "Option 1", category: "rooms" },
-  executive2RoomWide: { src: executive2RoomWideImg, alt: "Executive Room (option 2) with a red armchair and coffee table in front of a bed with a mosquito net", caption: "Option 2", category: "rooms" },
-  executive2ArmchairBed: { src: executive2ArmchairBedImg, alt: "Executive Room (option 2) armchair, coffee table with flowers and double bed by tall windows", caption: "Option 2", category: "rooms" },
-  executive2Bed: { src: executive2BedImg, alt: "Executive Room (option 2) double bed with a padded headboard and red cushion", caption: "Option 2", category: "rooms" },
-  executive2BedTowelSwan: { src: executive2BedTowelSwanImg, alt: "Executive Room (option 2) bed with Hotel Occazia pillows and a towel swan", caption: "Option 2", category: "rooms" },
-  executive2SeatingDesk: { src: executive2SeatingDeskImg, alt: "Executive Room (option 2) armchair and coffee table, with a desk, TV and standing fan beyond", caption: "Option 2", category: "rooms" },
-  executive2BedWindows: { src: executive2BedWindowsImg, alt: "Executive Room (option 2) bed, armchair and coffee table beside bright windows", caption: "Option 2", category: "rooms" },
-  executive2TeaTray: { src: executive2TeaTrayImg, alt: "Tea tray with kettle, cups, glasses and bottled water in the Executive Room (option 2)", caption: "Option 2", category: "rooms" },
-  executive2WardrobeMirror: { src: executive2WardrobeMirrorImg, alt: "Executive Room (option 2) wardrobe and full-length mirror by the door", caption: "Option 2", category: "rooms" },
-  executive2Mirror: { src: executive2MirrorImg, alt: "Full-length mirror reflecting the Executive Room (option 2) seating area", caption: "Option 2", category: "rooms" },
-  executive2EnSuite: { src: executive2EnSuiteImg, alt: "Executive Room (option 2) tiled en-suite with shower and toilet", caption: "Option 2", category: "rooms" },
+  executiveTeaTray: { src: executiveTeaTrayImg, alt: "Tea tray with kettle, cups, glasses and bottled water in the Executive Room", category: "rooms" },
+  executiveRainShower: { src: executiveRainShowerImg, alt: "Executive Room en-suite with a rain shower and toilet", category: "rooms" },
   hall1Screen: { src: hall1ScreenImg, alt: "Hall 1 set classroom-style for 120 with a projector screen and red chairs", category: "events" },
   hall1Wide: { src: hall1WideImg, alt: "Wide view of Hall 1 with rows of delegate tables", category: "events" },
   hall1Rows: { src: hall1RowsImg, alt: "Rows of tables and red chairs in Hall 1", category: "events" },
@@ -191,21 +143,19 @@ const photos = {
   banquetTableForSix: { src: banquetTableForSixImg, alt: "Round banquet table in a red cloth with gold-framed red chairs", category: "events" },
   eventBuffet: { src: eventBuffetImg, alt: "Buffet station with chafing dishes and plates for event catering", category: "events" },
   fishPlate: { src: fishPlateImg, alt: "Whole fish topped with onions, peppers and tomatoes, served with a side and a dipping sauce", category: "dining" },
+  restaurantTablesTv: { src: restaurantTablesTvImg, alt: "Restaurant tables laid with napkins and flowers, red-cushioned chairs and a wall-mounted TV", category: "dining" },
+  receptionistPhone: { src: receptionistPhoneImg, alt: "Smiling receptionist on the phone at the front desk", category: "exterior" },
   restaurant: { src: restaurantImg, alt: "Hotel Occazia restaurant with wooden chairs, white tables and fresh flowers", category: "dining" },
   restaurantDiningRoom: { src: restaurantDiningRoomImg, alt: "Restaurant tables laid for dinner with red-cushioned chairs", category: "dining" },
   restaurantTableSetting: { src: restaurantTableSettingImg, alt: "Table set with folded napkins, cutlery and glasses", category: "dining" },
   restaurantWindowTables: { src: restaurantWindowTablesImg, alt: "Tables for four by the restaurant's curtained windows", category: "dining" },
   tableForTwo: { src: tableForTwoImg, alt: "Table for two set with plates, bowls and flowers", category: "dining" },
   chef: { src: chefImg, alt: "Chef preparing fresh vegetables in the hotel kitchen", category: "dining" },
-  kitchenPrep: { src: kitchenPrepImg, alt: "Fresh onions and peppers being chopped in the kitchen", category: "dining" },
-  restaurantTeam: { src: restaurantTeamImg, alt: "Restaurant team at the entrance to the restaurant", category: "dining" },
-  bartender: { src: bartenderImg, alt: "Smiling bartender pouring a drink at the hotel bar", category: "lounge" },
   barCounterGrille: { src: barCounterGrilleImg, alt: "Hotel bar counter with stocked shelves and a drinks fridge behind a steel grille", category: "lounge" },
   barShelves: { src: barShelvesImg, alt: "Wine and whisky bottles on the bar counter in front of shelves of spirits", category: "lounge" },
   barSoftDrinks: { src: barSoftDrinksImg, alt: "Canned drinks lined up on the bar counter", category: "lounge" },
   barWineWhisky: { src: barWineWhiskyImg, alt: "Bottles of wine and whisky on the bar counter", category: "lounge" },
   loungeSofas: { src: loungeSofasImg, alt: "Lounge with black leather sofas, chairs and a marble-top coffee table", category: "lounge" },
-  bar: { src: barImg, alt: "Bartender at the well-stocked hotel bar", category: "lounge" },
   loungeSeating: { src: loungeSeatingImg, alt: "Lounge with leather sofas and a marble coffee table", category: "lounge" },
   loungeBalcony: { src: loungeBalconyImg, alt: "Lounge seating beside open doors to the balcony", category: "lounge" },
   terraceTables: { src: terraceTablesImg, alt: "Bright upstairs lounge with high tables and large windows", category: "lounge" },
@@ -216,81 +166,52 @@ export const photoSlots: Record<string, Photo | undefined> = {
   hero: photos.rooftopSunsetLake,
   "rooms-standard": photos.standardBedNetDoor,
   "rooms-deluxe": photos.deluxeBedDoor,
-  "rooms-executive": photos.executive1SeatingBed,
+  "rooms-executive": photos.executiveSeatingBed,
   events: photos.hall1Screen,
   dining: photos.restaurant,
-  lounge: photos.bartender,
+  lounge: photos.barShelves,
   rooftop: photos.rooftopSunset,
   location: photos.mainEntrance,
   explore: photos.rooftopLakeView,
-  booking: photos.frontDesk,
+  booking: photos.receptionDesk,
 };
 
-// Slides in the home page hero carousel, first slide first. The first one is
-// preloaded as the LCP image.
-// Sorted by the owner into Categorized Media/Hero (Nov 2026).
+// Slides in the home page hero carousel, first slide first (it is preloaded as
+// the LCP image). Synced to the owner's Categorized Media/Hero folder (19 Nov 2026).
 export const heroPhotos = {
   rooftopLake: photos.rooftopUmbrellaLake,
-  reception: photos.receptionDesk,
+  room: photos.executiveSeatingBed,
   conference: photos.hall3SkirtedUShape,
+  reception: photos.receptionDesk,
   food: photos.fishPlate,
   rooftopHill: photos.rooftopUmbrellaHill,
   banquet: photos.banquetRoundTablesWindows,
-  lounge: photos.loungeSofas,
   rooftopPlants: photos.rooftopTerracePlants,
   bar: photos.barWineWhisky,
   drinks: photos.barSoftDrinks,
 };
 
-// Photo carousels on each room page, first photo first. Sorted into room
-// types by the owner (Categorized Media/Standard Room, Deluxe Room and
-// Executive Room/Exec1 + Exec2, Nov 2026). The Executive Room has two layouts:
-// option 1 photos come first, then option 2; each carries a caption so the
-// gallery labels it. The owner filed the same balcony photo under both options;
-// it is listed once (a repeat would duplicate React keys in RoomGallery).
-// Standard and Deluxe share the en-suite photo for the same reason.
+// Photo carousels on each room page, best wide shot first. Synced to the
+// owner's Categorized Media room folders (19 Nov 2026). The Standard and Deluxe
+// rooms share the balcony and en-suite photos (the owner filed the same files
+// in both folders).
 export const roomPhotos: Record<string, Photo[]> = {
-  standard: [
-    photos.standardBedNetDoor,
-    photos.standardBedHeadboard,
-    photos.standardRoomTvDesk,
-    photos.standardRoomWardrobe,
-    photos.standardWritingDesk,
-    photos.standardEnSuite,
-  ],
+  standard: [photos.standardBedNetDoor, photos.standardRoomWardrobe, photos.deluxeBalconyChair, photos.standardEnSuite],
   deluxe: [
     photos.deluxeBedDoor,
-    photos.deluxeBedCushion,
     photos.deluxeRoomWideWindow,
-    photos.deluxeDeskFan,
-    photos.deluxeDeskTvWardrobe,
     photos.deluxeDeskGreyWardrobe,
     photos.deluxeBalconyChair,
     photos.standardEnSuite,
   ],
   executive: [
-    photos.executive1SeatingBed,
-    photos.executive1BedTowelArt,
-    photos.executive1BedWindow,
-    photos.executive1ViewFromBed,
-    photos.executive1LoungeDesk,
-    photos.executive1SeatingDoor,
-    photos.executive1SeatingBedWide,
-    photos.executive1BedPillows,
-    photos.executive1TeaTray,
+    photos.executiveSeatingBed,
+    photos.executiveRoomWide,
+    photos.executiveBedTowelArt,
+    photos.executiveViewFromBed,
     photos.executiveBalconyHillView,
-    photos.executive1RainShower,
-    photos.executive1EnSuite,
-    photos.executive2RoomWide,
-    photos.executive2ArmchairBed,
-    photos.executive2Bed,
-    photos.executive2BedTowelSwan,
-    photos.executive2SeatingDesk,
-    photos.executive2BedWindows,
-    photos.executive2TeaTray,
-    photos.executive2WardrobeMirror,
-    photos.executive2Mirror,
-    photos.executive2EnSuite,
+    photos.executiveTeaTray,
+    photos.executiveRainShower,
   ],
 };
 
@@ -322,55 +243,36 @@ export const rooftopPhotos: Photo[] = [photos.rooftopSunset, photos.rooftopSign,
 export const diningPhotos: Photo[] = [
   photos.restaurantDiningRoom,
   photos.restaurantTableSetting,
-  photos.chef,
+  photos.fishPlate,
   photos.restaurantWindowTables,
   photos.tableForTwo,
-  photos.restaurantTeam,
+  photos.restaurantTablesTv,
 ];
 
-export const loungePhotos: Photo[] = [photos.bartender, photos.barCounterGrille, photos.loungeSeating, photos.barShelves];
+export const loungePhotos: Photo[] = [photos.barWineWhisky, photos.barCounterGrille, photos.loungeSeating, photos.barShelves];
 
 // Gallery page photos in display order: categories in the same order as the
-// filter tabs, best photo first in each. Near-duplicates of a photo already
+// filter tabs, best photo first in each. At the owner's request (19 Nov 2026)
+// photos of staff are left out except the chef; the receptionist photo was
+// added by the owner from Categorized Media/Gallery. Near-duplicates of a photo already
 // listed (e.g. the shared Standard/Deluxe bathroom) are left out on purpose.
 // A photo added to `photos` above only shows here once it is added below.
 export const gallery: (Photo & { category: PhotoCategory })[] = [
   // Rooms: the best photo of each room first, then the rest by room
-  photos.executive1SeatingBed,
-  photos.executive2RoomWide,
+  photos.executiveSeatingBed,
   photos.deluxeBedDoor,
   photos.standardBedNetDoor,
-  photos.executive1BedTowelArt,
-  photos.executive1BedWindow,
-  photos.executive1ViewFromBed,
-  photos.executive1LoungeDesk,
-  photos.executive1SeatingDoor,
-  photos.executive1SeatingBedWide,
-  photos.executive1BedPillows,
-  photos.executive1TeaTray,
+  photos.executiveRoomWide,
+  photos.executiveBedTowelArt,
+  photos.executiveViewFromBed,
   photos.executiveBalconyHillView,
-  photos.executive1RainShower,
-  photos.executive1EnSuite,
-  photos.executive2ArmchairBed,
-  photos.executive2Bed,
-  photos.executive2BedTowelSwan,
-  photos.executive2SeatingDesk,
-  photos.executive2BedWindows,
-  photos.executive2TeaTray,
-  photos.executive2WardrobeMirror,
-  photos.executive2Mirror,
-  photos.executive2EnSuite,
-  photos.deluxeBedCushion,
+  photos.executiveTeaTray,
+  photos.executiveRainShower,
   photos.deluxeRoomWideWindow,
-  photos.deluxeDeskFan,
-  photos.deluxeDeskTvWardrobe,
   photos.deluxeDeskGreyWardrobe,
   photos.deluxeBalconyChair,
-  photos.standardEnSuite,
-  photos.standardBedHeadboard,
-  photos.standardRoomTvDesk,
   photos.standardRoomWardrobe,
-  photos.standardWritingDesk,
+  photos.standardEnSuite,
   // Conferences: one of each hall first, then the other layouts
   photos.hall1Screen,
   photos.hall2Classroom,
@@ -405,16 +307,13 @@ export const gallery: (Photo & { category: PhotoCategory })[] = [
   // Dining
   photos.restaurant,
   photos.fishPlate,
+  photos.restaurantTablesTv,
   photos.restaurantWindowTables,
   photos.restaurantTableSetting,
   photos.tableForTwo,
   photos.chef,
-  photos.kitchenPrep,
-  photos.restaurantTeam,
   // Bar & lounge
-  photos.bartender,
   photos.barCounterGrille,
-  photos.bar,
   photos.barShelves,
   photos.barWineWhisky,
   photos.barSoftDrinks,
@@ -428,9 +327,10 @@ export const gallery: (Photo & { category: PhotoCategory })[] = [
   photos.mainEntrance,
   photos.receptionDesk,
   photos.receptionEntrance,
-  photos.frontDesk,
+  photos.receptionistPhone,
   photos.corridor,
 ];
 
-// Home page "experience" row: people and atmosphere, not repeats of the section photos.
-export const experiencePhotos: Photo[] = [photos.rooftopSunset, photos.restaurantTeam, photos.chef];
+// Home page "experience" row: atmosphere, not repeats of the section photos.
+// No staff photos outside the gallery, at the owner's request (19 Nov 2026).
+export const experiencePhotos: Photo[] = [photos.rooftopSunset, photos.fishPlate, photos.loungeSofas];
