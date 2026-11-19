@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { Photo } from "@/data/photos";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons";
+import { PhotoBackdrop } from "@/components/PhotoBackdrop";
 
 export type HeroSlide = {
   photo: Photo;
@@ -86,13 +87,7 @@ export function HeroCarousel({ slides, interval = 2000 }: Props) {
           aria-hidden={i !== active}
           className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === active ? "opacity-100" : "opacity-0"}`}
         >
-          {/* Backdrop: the tiny blur placeholder stretched, blurred and darkened
-              to fill the space beside the photo. Costs no extra download. */}
-          <div
-            aria-hidden
-            className="absolute inset-0 scale-110 bg-cover bg-center blur-2xl brightness-[0.55]"
-            style={{ backgroundImage: slide.photo.src.blurDataURL ? `url(${slide.photo.src.blurDataURL})` : undefined }}
-          />
+          <PhotoBackdrop photo={slide.photo} />
           {loaded[i] && (
             <Image
               src={slide.photo.src}

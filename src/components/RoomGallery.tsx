@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import type { Photo } from "@/data/photos";
+import { isPortrait, PhotoBackdrop } from "@/components/PhotoBackdrop";
 
 type Props = {
   photos: Photo[];
@@ -36,20 +37,29 @@ export function RoomGallery({ photos, badge, priority = true }: Props) {
           touchX.current = null;
         }}
       >
-        {photos.map((photo, i) => (
-          <Image
-            key={photo.src.src}
-            src={photo.src}
-            alt={photo.alt}
-            fill
-            sizes="(min-width: 1024px) 60vw, 100vw"
-            placeholder="blur"
-            loading={priority && i === 0 ? "eager" : "lazy"}
-            fetchPriority={priority && i === 0 ? "high" : undefined}
-            aria-hidden={i !== active}
-            className={`object-cover transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
-          />
-        ))}
+        {photos.map((photo, i) => {
+          // Portrait photos are shown whole over a blurred copy instead of cropped.
+          const tall = isPortrait(photo);
+          return (
+            <div
+              key={photo.src.src}
+              aria-hidden={i !== active}
+              className={`absolute inset-0 transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
+            >
+              {tall && <PhotoBackdrop photo={photo} />}
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                placeholder={tall ? "empty" : "blur"}
+                loading={priority && i === 0 ? "eager" : "lazy"}
+                fetchPriority={priority && i === 0 ? "high" : undefined}
+                className={tall ? "object-contain" : "object-cover"}
+              />
+            </div>
+          );
+        })}
         {badge && (
           <span className="absolute left-4 top-4 rounded-md bg-wine-900/85 px-3 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold-500">
             {badge}

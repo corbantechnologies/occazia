@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { Photo, PhotoCategory } from "@/data/photos";
+import { isPortrait, PhotoBackdrop } from "@/components/PhotoBackdrop";
 
 type Props = {
   photos: (Photo & { category: PhotoCategory })[];
@@ -56,13 +57,15 @@ export function Gallery({ photos, categories }: Props) {
               className="relative block aspect-square w-full overflow-hidden rounded-xl"
             >
               <span className="sr-only">Open photo: {photo.alt}</span>
+              {/* Portrait photos are shown whole over a blurred copy instead of cropped square. */}
+              {isPortrait(photo) && <PhotoBackdrop photo={photo} />}
               <Image
                 src={photo.src}
                 alt=""
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-                placeholder="blur"
-                className="object-cover transition-transform duration-300 hover:scale-105"
+                placeholder={isPortrait(photo) ? "empty" : "blur"}
+                className={`${isPortrait(photo) ? "object-contain" : "object-cover"} transition-transform duration-300 hover:scale-105`}
               />
             </button>
           </li>
