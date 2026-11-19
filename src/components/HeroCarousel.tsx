@@ -10,7 +10,15 @@ export type HeroSlide = {
   photo: Photo;
   // Describes the slide for the dot buttons (screen readers and tooltips).
   label: string;
+  // CSS object-position used when photos fill the hero ("cover"), to keep the
+  // subject in frame when the top and bottom are cropped. Defaults to centre.
+  position?: string;
 };
+
+// How hero photos are fitted. "cover": full-bleed, filling the hero (crops the
+// top and bottom on wide screens). "contain": the whole photo, with a blurred
+// copy filling the space beside it. Change this one value to switch back.
+const HERO_FIT: "cover" | "contain" = "cover";
 
 type Props = {
   slides: HeroSlide[];
@@ -25,11 +33,10 @@ const LOOK_AHEAD = 2;
 const arrowClass =
   "flex items-center justify-center rounded-full bg-wine-900/55 text-white ring-1 ring-white/30 backdrop-blur-sm transition hover:bg-wine-900/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500";
 
-// Cross-fading hero photos with previous / next arrows, dots, swipe and
-// left/right arrow keys. Each photo is shown whole (object-contain, no zoom) over
-// a blurred, darkened copy of itself, so nothing is cropped whatever the screen
-// shape. On phones the carousel is a 3:2 box above the hero text; from md up it
-// fills the hero behind the text.
+// Cross-fading hero photos (no zoom) with previous / next arrows, dots, swipe
+// and left/right arrow keys, fitted as set by HERO_FIT above. On phones the
+// carousel is a 3:2 box above the hero text; from md up it fills the hero
+// behind the text.
 // The first photo is preloaded as the LCP image; later photos are added to the
 // page a couple of slides before their turn. Any manual change restarts the
 // timer. Autoplay pauses while a control is hovered or focused, and is off for
@@ -87,7 +94,7 @@ export function HeroCarousel({ slides, interval = 2000 }: Props) {
           aria-hidden={i !== active}
           className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === active ? "opacity-100" : "opacity-0"}`}
         >
-          <PhotoBackdrop photo={slide.photo} />
+          {HERO_FIT === "contain" && <PhotoBackdrop photo={slide.photo} />}
           {loaded[i] && (
             <Image
               src={slide.photo.src}
@@ -97,7 +104,8 @@ export function HeroCarousel({ slides, interval = 2000 }: Props) {
               placeholder="blur"
               preload={i === 0}
               loading={i === 0 ? undefined : "lazy"}
-              className="object-contain"
+              className={HERO_FIT === "contain" ? "object-contain" : "object-cover"}
+              style={HERO_FIT === "cover" && slide.position ? { objectPosition: slide.position } : undefined}
             />
           )}
         </div>

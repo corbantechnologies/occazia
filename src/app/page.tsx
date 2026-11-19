@@ -22,15 +22,15 @@ const maxHall = Math.max(...halls.map((h) => h.capacity));
 // describe each photo for the dot buttons.
 const heroSlides: HeroSlide[] = [
   { photo: heroPhotos.rooftopLake, label: "Lake views from our rooftop terrace" },
-  { photo: heroPhotos.room, label: "Executive Room with its own seating lounge" },
-  { photo: heroPhotos.conference, label: `Conference halls for up to ${maxHall}` },
+  { photo: heroPhotos.room, label: "Executive Room with its own seating lounge", position: "50% 65%" },
+  { photo: heroPhotos.conference, label: `Conference halls for up to ${maxHall}`, position: "50% 60%" },
   { photo: heroPhotos.reception, label: "24-hour front desk in Homa Bay" },
-  { photo: heroPhotos.food, label: "Fresh Lake Victoria tilapia at our restaurant" },
+  { photo: heroPhotos.food, label: "Fresh Lake Victoria tilapia at our restaurant", position: "50% 60%" },
   { photo: heroPhotos.rooftopHill, label: "Sunny days on the rooftop" },
-  { photo: heroPhotos.banquet, label: "Banquets and event lunches" },
+  { photo: heroPhotos.banquet, label: "Banquets and event lunches", position: "50% 65%" },
   { photo: heroPhotos.rooftopPlants, label: "Open-air rooftop terrace" },
-  { photo: heroPhotos.bar, label: "Drinks at the hotel bar" },
-  { photo: heroPhotos.drinks, label: "Cold drinks at the bar" },
+  { photo: heroPhotos.bar, label: "Drinks at the hotel bar", position: "50% 55%" },
+  { photo: heroPhotos.drinks, label: "Cold drinks at the bar", position: "50% 70%" },
 ];
 
 const trustSignals = [
@@ -49,8 +49,8 @@ export default function Home() {
   return (
     <>
       {/* Phones: the photo carousel on top, the text underneath on dark red.
-          From md up: the text sits over the photos, in a frame sized close to
-          their 3:2 shape so little or nothing is cropped. */}
+          From md up: the text sits over the photos (see HERO_FIT in
+          HeroCarousel for how they are fitted). */}
       <section className="relative isolate flex flex-col overflow-hidden bg-wine-900 md:h-[min(78svh,60vw)] md:min-h-[560px] md:justify-end">
         <HeroCarousel slides={heroSlides} />
         {/* From md up the carousel controls sit under this block, so clicks on its

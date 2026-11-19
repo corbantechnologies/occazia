@@ -27,7 +27,6 @@ import hall2ClassroomImg from "../../public/images/events/hall-2/classroom.jpg";
 import hall2TablesImg from "../../public/images/events/hall-2/tables.jpg";
 import hall2BanquetImg from "../../public/images/events/hall-2/banquet.jpg";
 import hall3BanquetImg from "../../public/images/events/hall-3/banquet.jpg";
-import hall3UShapeImg from "../../public/images/events/hall-3/u-shape.jpg";
 import hall3SkirtedUShapeImg from "../../public/images/events/hall-3/u-shape-skirted-wide.jpg";
 import banquetRoundTablesWindowsImg from "../../public/images/events/banquet/round-tables-windows.jpg";
 import rooftopUmbrellaLakeImg from "../../public/images/rooftop/umbrella-lake-view.jpg";
@@ -134,7 +133,6 @@ const photos = {
   hall3WindowSide: { src: hall3WindowSideImg, alt: "Hall 3 U-shape tables beside bright windows", category: "events" },
   hall3LongTables: { src: hall3LongTablesImg, alt: "Long skirted tables and blue chairs along the side of Hall 3", category: "events" },
   hall3Banquet: { src: hall3BanquetImg, alt: "Hall 3 with round tables in red cloths and blue banquet chairs", category: "events" },
-  hall3UShape: { src: hall3UShapeImg, alt: "Hall 3 with wooden tables in a U-shape and red chairs", category: "events" },
   conferenceHallScreen: { src: conferenceHallScreenImg, alt: "Delegate tables facing a projector screen and flip chart", category: "events" },
   conferenceTableSetting: { src: conferenceTableSettingImg, alt: "Conference table set with notepads, pens and bottled water", category: "events" },
   conferenceProjector: { src: conferenceProjectorImg, alt: "Projector set up on a delegate table", category: "events" },
@@ -220,14 +218,14 @@ export const hallPhotos: Record<string, Photo[]> = {
   "hall-1": [photos.hall1Screen, photos.hall1Wide, photos.hall1Rows, photos.hall1Tables],
   "hall-2": [photos.hall2Screen, photos.hall2Classroom, photos.hall2Banquet, photos.hall2Tables],
   // New Nov 2026 shots first (Photos/COFERENCE ROOM: same folding doors and
-  // floor as Hall 3), then the older banquet and wooden-table layouts.
+  // floor as Hall 3), then the older banquet layout. The bare wooden-table
+  // photo was removed at the owner's request (19 Nov 2026).
   "hall-3": [
     photos.hall3SkirtedUShape,
     photos.hall3HollowSquare,
     photos.hall3WindowSide,
     photos.hall3LongTables,
     photos.hall3Banquet,
-    photos.hall3UShape,
   ],
 };
 
@@ -288,7 +286,6 @@ export const gallery: (Photo & { category: PhotoCategory })[] = [
   photos.banquetTableForSix,
   photos.hall1Rows,
   photos.hall2Tables,
-  photos.hall3UShape,
   photos.hall3LongTables,
   photos.hall1Tables,
   photos.conferenceTableSetting,
