@@ -23,9 +23,12 @@ npm run build
 
 Change a price or phone number in the data file and every page picks it up.
 
-## Adding photos
+## Changing photos
 
-1. Put the original JPGs in the matching folder: `public/images/rooms`, `events`, `dining`, `lounge` or `exterior`. Use simple lowercase names, for example `deluxe-balcony.jpg`. Full-size originals are fine; Next.js resizes and converts them to AVIF/WebP.
-2. Import the file in `src/data/photos.ts` and assign it to a slot (hero, a room, events, dining, lounge) or add it to `gallery`, with descriptive alt text such as "Deluxe room with lake-view balcony at Hotel Occazia Homa Bay".
+See **[IMAGES.md](IMAGES.md)** for how to add, replace, reorder or remove photos, how to size them, and which list in `src/data/photos.ts` controls each part of the site. In short: photo files go in `public/images/<section>/`, and `src/data/photos.ts` decides where each one appears. To shrink a photo before adding it:
+
+```bash
+node scripts/optimize-image.mjs "<original>" public/images/<folder>/<name>.jpg [width]
+```
 
 Until a slot has a photo, the site shows a branded placeholder.

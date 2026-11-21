@@ -4,6 +4,8 @@ import mainEntranceImg from "../../public/images/exterior/main-entrance.jpg";
 import buildingViewImg from "../../public/images/exterior/building-view.jpg";
 import receptionEntranceImg from "../../public/images/exterior/reception-entrance.jpg";
 import corridorImg from "../../public/images/exterior/corridor.jpg";
+import buildingDrivewayImg from "../../public/images/exterior/building-driveway.jpg";
+import entranceSignImg from "../../public/images/exterior/entrance-sign.jpg";
 import standardBedNetDoorImg from "../../public/images/rooms/standard/bed-net-door.jpg";
 import standardRoomWardrobeImg from "../../public/images/rooms/standard/room-wardrobe.jpg";
 import standardEnSuiteImg from "../../public/images/rooms/standard/en-suite.jpg";
@@ -67,12 +69,10 @@ import loungeBalconyImg from "../../public/images/lounge/lounge-balcony.jpg";
 import terraceTablesImg from "../../public/images/lounge/terrace-tables.jpg";
 
 // Photos live in /public/images/<category>/ and are imported statically so
-// next/image gets their size and a blur placeholder. Originals are in the
-// owner's Documents/Occazia/Media, Photos and Categorized Media folders (resized
-// to 1024-1600px wide, up to 1920px for photos used full-width such as the home
-// hero slides, metadata stripped).
-// To add one: save it in the right folder, import it above, and
-// add it to `photos` with alt text that describes what is in the picture.
+// next/image gets their size and a blur placeholder. Files are resized to
+// 1024-1600px wide (1920px for full-width photos such as the home hero slides)
+// with metadata stripped. See IMAGES.md at the repo root for how to add,
+// replace or remove a photo.
 
 export type Photo = {
   src: StaticImageData;
@@ -105,6 +105,8 @@ const photos = {
   mainEntrance: { src: mainEntranceImg, alt: "Main entrance of Hotel Occazia Homa Bay with its sign and potted plants", category: "exterior" },
   buildingView: { src: buildingViewImg, alt: "The Hotel Occazia building in Homa Bay with balconies on every floor", category: "exterior" },
   receptionEntrance: { src: receptionEntranceImg, alt: "Glass doors opening into the reception area", category: "exterior" },
+  buildingDriveway: { src: buildingDrivewayImg, alt: "Hotel Occazia Homa Bay building with balconies on every floor, seen from the paved driveway", category: "exterior" },
+  entranceSign: { src: entranceSignImg, alt: "Main entrance of Hotel Occazia Homa Bay with its red sign, pillars and potted plants", category: "exterior" },
   corridor: { src: corridorImg, alt: "Bright corridor leading to the guest rooms", category: "exterior" },
   standardBedNetDoor: { src: standardBedNetDoorImg, alt: "Standard Room queen bed with a mosquito net, red curtains and a wooden door", category: "rooms" },
   standardRoomWardrobe: { src: standardRoomWardrobeImg, alt: "Standard Room wardrobe, mirror, wall-mounted TV and desk", category: "rooms" },
@@ -175,8 +177,9 @@ export const photoSlots: Record<string, Photo | undefined> = {
 };
 
 // Slides in the home page hero carousel, first slide first (it is preloaded as
-// the LCP image). Synced to the owner's Categorized Media/Hero folder (19 Nov 2026).
+// the LCP image).
 export const heroPhotos = {
+  building: photos.buildingDriveway,
   rooftopLake: photos.rooftopUmbrellaLake,
   room: photos.executiveSeatingBed,
   conference: photos.hall3SkirtedUShape,
@@ -187,12 +190,12 @@ export const heroPhotos = {
   rooftopPlants: photos.rooftopTerracePlants,
   bar: photos.barWineWhisky,
   drinks: photos.barSoftDrinks,
+  entrance: photos.entranceSign,
 };
 
-// Photo carousels on each room page, best wide shot first. Synced to the
-// owner's Categorized Media room folders (19 Nov 2026). The Standard and Deluxe
-// rooms share the balcony and en-suite photos (the owner filed the same files
-// in both folders).
+// Photo carousels on each room page, best wide shot first (the first photo is
+// also the room's cover image). The Standard and Deluxe rooms share the
+// balcony and en-suite photos.
 export const roomPhotos: Record<string, Photo[]> = {
   standard: [photos.standardBedNetDoor, photos.standardRoomWardrobe, photos.deluxeBalconyChair, photos.standardEnSuite],
   deluxe: [
@@ -217,9 +220,7 @@ export const roomPhotos: Record<string, Photo[]> = {
 export const hallPhotos: Record<string, Photo[]> = {
   "hall-1": [photos.hall1Screen, photos.hall1Wide, photos.hall1Rows, photos.hall1Tables],
   "hall-2": [photos.hall2Screen, photos.hall2Classroom, photos.hall2Banquet, photos.hall2Tables],
-  // New Nov 2026 shots first (Photos/COFERENCE ROOM: same folding doors and
-  // floor as Hall 3), then the older banquet layout. The bare wooden-table
-  // photo was removed at the owner's request (19 Nov 2026).
+  // Newest layouts first, then the banquet layout.
   "hall-3": [
     photos.hall3SkirtedUShape,
     photos.hall3HollowSquare,
@@ -250,9 +251,8 @@ export const diningPhotos: Photo[] = [
 export const loungePhotos: Photo[] = [photos.barWineWhisky, photos.barCounterGrille, photos.loungeSeating, photos.barShelves];
 
 // Gallery page photos in display order: categories in the same order as the
-// filter tabs, best photo first in each. At the owner's request (19 Nov 2026)
-// photos of staff are left out except the chef; the receptionist photo was
-// added by the owner from Categorized Media/Gallery. Near-duplicates of a photo already
+// filter tabs, best photo first in each. Staff appear only in the chef and
+// receptionist photos. Near-duplicates of a photo already
 // listed (e.g. the shared Standard/Deluxe bathroom) are left out on purpose.
 // A photo added to `photos` above only shows here once it is added below.
 export const gallery: (Photo & { category: PhotoCategory })[] = [
@@ -319,6 +319,8 @@ export const gallery: (Photo & { category: PhotoCategory })[] = [
   photos.loungeBalcony,
   photos.terraceTables,
   // Hotel
+  photos.buildingDriveway,
+  photos.entranceSign,
   photos.hotelFront,
   photos.buildingView,
   photos.mainEntrance,
@@ -329,5 +331,4 @@ export const gallery: (Photo & { category: PhotoCategory })[] = [
 ];
 
 // Home page "experience" row: atmosphere, not repeats of the section photos.
-// No staff photos outside the gallery, at the owner's request (19 Nov 2026).
 export const experiencePhotos: Photo[] = [photos.rooftopSunset, photos.fishPlate, photos.loungeSofas];

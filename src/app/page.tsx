@@ -21,6 +21,7 @@ const maxHall = Math.max(...halls.map((h) => h.capacity));
 // Home hero slides, first slide first (it is also the LCP image). The labels
 // describe each photo for the dot buttons.
 const heroSlides: HeroSlide[] = [
+  { photo: heroPhotos.building, label: "Hotel Occazia Homa Bay", position: "50% 35%" },
   { photo: heroPhotos.rooftopLake, label: "Lake views from our rooftop terrace" },
   { photo: heroPhotos.room, label: "Executive Room with its own seating lounge", position: "50% 65%" },
   { photo: heroPhotos.conference, label: `Conference halls for up to ${maxHall}`, position: "50% 60%" },
@@ -31,6 +32,7 @@ const heroSlides: HeroSlide[] = [
   { photo: heroPhotos.rooftopPlants, label: "Open-air rooftop terrace" },
   { photo: heroPhotos.bar, label: "Drinks at the hotel bar", position: "50% 55%" },
   { photo: heroPhotos.drinks, label: "Cold drinks at the bar", position: "50% 70%" },
+  { photo: heroPhotos.entrance, label: "Welcome to our main entrance", position: "50% 30%" },
 ];
 
 const trustSignals = [

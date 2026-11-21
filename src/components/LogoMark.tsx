@@ -3,7 +3,7 @@ type Props = {
 };
 
 // The building mark from the Hotel Occazia logo, traced to a vector from the
-// owner's logo file. Takes the text colour, so set it with a text-* class.
+// hotel's logo file. Takes the text colour, so set it with a text-* class.
 export function LogoMark({ className }: Props) {
   return (
     <svg viewBox="290 38 628 585" fill="currentColor" aria-hidden className={className}>
